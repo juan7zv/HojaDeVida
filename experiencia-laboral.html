@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiencia Laboral - Hoja de Vida</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
+        <p>Persona Natural</p>
+    </header>
+
+    <nav>
+        <a href="datos-personales.html" class="paso-completado">1. Datos Personales</a>
+        <a href="formacion-academica.html" class="paso-completado">2. Formación Académica</a>
+        <span class="paso-activo">3. Experiencia Laboral</span>
+        <a href="tiempo-experiencia.html">4. Tiempo Experiencia</a>
+        <a href="certificacion.html">5. Certificación</a>
+    </nav>
+
+    <main>
+        <div id="alertaGeneral" class="alerta"></div>
+
+        <section>
+            <h2><span class="numero-seccion">3</span> Experiencia Laboral</h2>
+            <p style="font-size:0.82rem;color:#6C757D;margin-bottom:16px;">
+                Relacione su experiencia laboral o de prestación de servicios en estricto orden cronológico comenzando por el actual.
+            </p>
+
+            <div id="listaExperiencias">
+                <!-- Experiencias dinámicas -->
+            </div>
+
+            <button type="button" class="btn btn-agregar" onclick="agregarExperiencia()">+ Agregar Experiencia Laboral</button>
+        </section>
+
+        <section>
+            <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
+                <button class="btn btn-secundario" onclick="irAnterior('formacion-academica.html')">← Anterior</button>
+                <div>
+                    <button class="btn btn-acento" onclick="previsualizarExperiencia()">👁 Previsualizar</button>
+                    <button class="btn btn-primario" onclick="if(validarExperienciaLaboral()){guardarExperienciaLaboral();irSiguiente('tiempo-experiencia.html');}else{mostrarAlerta('alertaGeneral','Complete los campos obligatorios.','error');}">Siguiente ➜</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="cerrarModal()">
+        <div class="modal-contenido" id="modalContenido" onclick="event.stopPropagation()"></div>
+    </div>
+
+    <footer>
+        <p>Formato Único Hoja de Vida &copy; 2026 · Sección 3 de 5</p>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/validacion.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/app2.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiempo de Experiencia - Hoja de Vida</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
+        <p>Persona Natural</p>
+    </header>
+
+    <nav>
+        <a href="datos-personales.html" class="paso-completado">1. Datos Personales</a>
+        <a href="formacion-academica.html" class="paso-completado">2. Formación Académica</a>
+        <a href="experiencia-laboral.html" class="paso-completado">3. Experiencia Laboral</a>
+        <span class="paso-activo">4. Tiempo Experiencia</span>
+        <a href="certificacion.html">5. Certificación</a>
+    </nav>
+
+    <main>
+        <div id="alertaGeneral" class="alerta"></div>
+
+        <section>
+            <h2><span class="numero-seccion">4</span> Tiempo Total de Experiencia</h2>
+            <p style="font-size:0.82rem;color:#6C757D;margin-bottom:16px;">
+                Indique el tiempo total de su experiencia laboral en número de años y meses.
+            </p>
+
+            <div id="listaOcupaciones">
+                <!-- Ocupaciones dinámicas -->
+            </div>
+
+            <button type="button" class="btn btn-agregar" onclick="agregarOcupacion()">+ Agregar Ocupación</button>
+
+            <!-- Total calculado -->
+            <div style="margin-top:20px;padding:16px;background:#E8F5E9;border-radius:8px;text-align:center;">
+                <h3 style="color:#1B4332;margin:0 0 8px;">Tiempo Total de Experiencia</h3>
+                <p style="font-size:1.4rem;font-weight:700;color:#2D6A4F;margin:0;">
+                    <span id="totalAnios">0</span> años y <span id="totalMeses">0</span> meses
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
+                <button class="btn btn-secundario" onclick="irAnterior('experiencia-laboral.html')">← Anterior</button>
+                <div>
+                    <button class="btn btn-acento" onclick="previsualizarTiempo()">👁 Previsualizar</button>
+                    <button class="btn btn-primario" onclick="if(validarTiempoExperiencia()){guardarTiempoExperiencia();irSiguiente('certificacion.html');}else{mostrarAlerta('alertaGeneral','Complete los campos.','error');}">Siguiente ➜</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="cerrarModal()">
+        <div class="modal-contenido" id="modalContenido" onclick="event.stopPropagation()"></div>
+    </div>
+
+    <footer>
+        <p>Formato Único Hoja de Vida &copy; 2026 · Sección 4 de 5</p>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/validacion.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/app2.js"></script>
+</body>
+</html>

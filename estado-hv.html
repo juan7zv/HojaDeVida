@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de Hoja de Vida</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
+        <p>Consulta de Estado</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <span class="paso-activo">Estado de Hoja de Vida</span>
+    </nav>
+
+    <main>
+        <div id="alertaGeneral" class="alerta"></div>
+
+        <section>
+            <h2><span class="numero-seccion">✓</span> Estado de su Hoja de Vida</h2>
+
+            <div id="infoEstado">
+                <div style="text-align:center;padding:30px;">
+                    <p style="font-size:1.1rem;color:var(--texto-claro);">Su hoja de vida ha sido registrada correctamente.</p>
+                    <div style="margin:20px 0;">
+                        <span class="badge badge-diligenciada" style="font-size:1rem;padding:8px 20px;">Diligenciada</span>
+                    </div>
+                    <p style="font-size:0.85rem;color:var(--texto-claro);">
+                        El estado de su hoja de vida puede cambiar a <strong>Aceptada</strong> o <strong>Rechazada</strong> 
+                        una vez el administrador la revise.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top:20px;">
+                <h3>Resumen de la Hoja de Vida Enviada</h3>
+                <div id="resumenHV" style="margin-top:12px;">
+                    <p style="color:var(--texto-claro);font-size:0.85rem;">La información se registró en el sistema y está pendiente de revisión.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
+                <a href="index.html" class="btn btn-secundario" style="text-decoration:none;">← Volver al Inicio</a>
+                <a href="datos-personales.html" class="btn btn-primario" style="text-decoration:none;">+ Nueva Hoja de Vida</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Formato Único Hoja de Vida &copy; 2026 - Desarrollo Web</p>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/validacion.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/app2.js"></script>
+    <script>
+        window.onload = function() {
+            // Mostrar resumen si existe la hoja de vida actual
+            if (hojaVidaActual && hojaVidaActual.datosPersonales) {
+                var dp = hojaVidaActual.datosPersonales;
+                var resumenDiv = document.getElementById("resumenHV");
+                var h = "";
+                h += datoPrev("Nombre", dp.nombres + " " + dp.primerApellido + " " + dp.segundoApellido);
+                h += datoPrev("Documento", dp.tipoDocumento + " " + dp.numeroDocumento);
+                h += datoPrev("Email", dp.email);
+                h += datoPrev("Teléfono", dp.telefono);
+                h += datoPrev("Estado", "Diligenciada");
+                h += datoPrev("Fecha", hojaVidaActual.fechaCreacion || new Date().toISOString().split("T")[0]);
+                resumenDiv.innerHTML = h;
+            }
+        };
+    </script>
+</body>
+</html>

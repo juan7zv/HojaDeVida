@@ -1,0 +1,712 @@
+/* ============================================
+   HOJA DE VIDA - FORMATO UNICO
+   Estilos generales de la aplicación
+   ============================================ */
+
+/* Importar fuente */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Variables de colores */
+:root {
+    --primario: #2D6A4F;
+    --primario-oscuro: #1B4332;
+    --primario-claro: #52B788;
+    --acento: #D4A373;
+    --acento-oscuro: #B07D4F;
+    --fondo: #FEFAE0;
+    --superficie: #FFFFFF;
+    --texto: #2B2D42;
+    --texto-claro: #6C757D;
+    --error: #E63946;
+    --exito: #2D6A4F;
+    --borde: #D5D8DC;
+    --sombra: rgba(0, 0, 0, 0.08);
+}
+
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+    background: linear-gradient(135deg, var(--primario-oscuro), var(--primario));
+    color: #fff;
+    padding: 18px 30px;
+    text-align: center;
+    box-shadow: 0 2px 8px var(--sombra);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+header p {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    margin-top: 4px;
+}
+
+/* ============================================
+   NAV - Indicador de pasos
+   ============================================ */
+nav {
+    background-color: var(--superficie);
+    padding: 14px 20px;
+    border-bottom: 2px solid var(--borde);
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+nav a, nav span {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: var(--texto-claro);
+    background-color: #F0F0F0;
+    cursor: pointer;
+}
+
+nav a:hover {
+    background-color: var(--primario-claro);
+    color: #fff;
+}
+
+nav .paso-activo {
+    background-color: var(--primario);
+    color: #fff;
+    font-weight: 600;
+}
+
+nav .paso-completado {
+    background-color: var(--acento);
+    color: #fff;
+}
+
+/* ============================================
+   MAIN
+   ============================================ */
+main {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   SECTION - Tarjeta de formulario
+   ============================================ */
+section {
+    background-color: var(--superficie);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px var(--sombra);
+    border-left: 4px solid var(--primario);
+}
+
+section h2 {
+    font-size: 1.2rem;
+    color: var(--primario-oscuro);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--fondo);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+section h2 .numero-seccion {
+    background-color: var(--primario);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+section h3 {
+    font-size: 1rem;
+    color: var(--primario);
+    margin: 18px 0 12px;
+    font-weight: 600;
+}
+
+/* ============================================
+   FORMULARIOS
+   ============================================ */
+.fila-campos {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+}
+
+.campo label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--texto);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo input[type="number"],
+.campo input[type="password"],
+.campo select,
+.campo textarea {
+    padding: 9px 12px;
+    border: 1.5px solid var(--borde);
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--texto);
+    background-color: #FAFAFA;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--primario);
+    box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+    background-color: #fff;
+}
+
+.campo textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+/* Campo con error */
+.campo-error input,
+.campo-error select,
+.campo-error textarea {
+    border-color: var(--error);
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.12);
+}
+
+.mensaje-error {
+    font-size: 0.72rem;
+    color: var(--error);
+    margin-top: 4px;
+    font-weight: 500;
+    display: none;
+}
+
+.campo-error .mensaje-error {
+    display: block;
+}
+
+/* Radio buttons y checkboxes */
+.grupo-radio, .grupo-check {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.grupo-radio label, .grupo-check label {
+    font-size: 0.84rem;
+    font-weight: 400;
+    text-transform: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.grupo-radio input[type="radio"],
+.grupo-check input[type="checkbox"] {
+    accent-color: var(--primario);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Grupo de checkboxes para grados */
+.grupo-grados {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.grupo-grados label {
+    font-size: 0.78rem;
+    background-color: #F0F0F0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.grupo-grados label:hover {
+    background-color: #E0E0E0;
+}
+
+.grupo-grados input:checked + span {
+    color: var(--primario);
+    font-weight: 600;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.botones-formulario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 2px solid var(--fondo);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: 'Inter', Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-primario {
+    background-color: var(--primario);
+    color: #fff;
+}
+
+.btn-primario:hover {
+    background-color: var(--primario-oscuro);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(45, 106, 79, 0.3);
+}
+
+.btn-secundario {
+    background-color: #E9ECEF;
+    color: var(--texto);
+}
+
+.btn-secundario:hover {
+    background-color: #D5D8DC;
+}
+
+.btn-acento {
+    background-color: var(--acento);
+    color: #fff;
+}
+
+.btn-acento:hover {
+    background-color: var(--acento-oscuro);
+    transform: translateY(-1px);
+}
+
+.btn-peligro {
+    background-color: var(--error);
+    color: #fff;
+}
+
+.btn-peligro:hover {
+    background-color: #C1121F;
+}
+
+.btn-agregar {
+    background-color: transparent;
+    color: var(--primario);
+    border: 2px dashed var(--primario);
+    padding: 8px 18px;
+    font-size: 0.82rem;
+}
+
+.btn-agregar:hover {
+    background-color: rgba(45, 106, 79, 0.08);
+}
+
+.btn-eliminar {
+    background-color: transparent;
+    color: var(--error);
+    border: 1px solid var(--error);
+    padding: 6px 12px;
+    font-size: 0.78rem;
+}
+
+.btn-eliminar:hover {
+    background-color: rgba(230, 57, 70, 0.08);
+}
+
+/* ============================================
+   TABLAS
+   ============================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 0.84rem;
+}
+
+table thead {
+    background-color: var(--primario);
+    color: #fff;
+}
+
+table th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--borde);
+}
+
+table tbody tr:hover {
+    background-color: rgba(45, 106, 79, 0.04);
+}
+
+/* ============================================
+   REGISTRO DINAMICO (tarjeta)
+   ============================================ */
+.registro-dinamico {
+    background-color: #F8F9FA;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 14px;
+    position: relative;
+}
+
+.registro-dinamico .registro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.registro-dinamico .registro-header h4 {
+    font-size: 0.9rem;
+    color: var(--primario);
+}
+
+/* ============================================
+   PREVISUALIZACION
+   ============================================ */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.activo {
+    display: flex;
+}
+
+.modal-contenido {
+    background-color: var(--superficie);
+    border-radius: 10px;
+    padding: 28px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-contenido h3 {
+    color: var(--primario-oscuro);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--fondo);
+}
+
+.modal-contenido .dato-preview {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px solid #F0F0F0;
+    font-size: 0.85rem;
+}
+
+.modal-contenido .dato-preview .etiqueta {
+    font-weight: 600;
+    color: var(--texto-claro);
+}
+
+.modal-contenido .dato-preview .valor {
+    color: var(--texto);
+    text-align: right;
+    max-width: 55%;
+}
+
+.modal-botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ============================================
+   ESTADO badges
+   ============================================ */
+.badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-diligenciada {
+    background-color: #FFF3CD;
+    color: #856404;
+}
+
+.badge-aceptada {
+    background-color: #D4EDDA;
+    color: #155724;
+}
+
+.badge-rechazada {
+    background-color: #F8D7DA;
+    color: #721C24;
+}
+
+/* ============================================
+   LOGIN
+   ============================================ */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.login-card {
+    background-color: var(--superficie);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--sombra);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+.login-card h2 {
+    color: var(--primario-oscuro);
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    border: none;
+    justify-content: center;
+}
+
+.login-card p {
+    color: var(--texto-claro);
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+}
+
+.login-card .campo {
+    text-align: left;
+    margin-bottom: 14px;
+}
+
+.login-card .campo label {
+    margin-bottom: 6px;
+}
+
+.login-card .btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+/* ============================================
+   ADMIN
+   ============================================ */
+.filtros-admin {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.filtros-admin label {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.filtros-admin select {
+    padding: 8px 14px;
+    border: 1.5px solid var(--borde);
+    border-radius: 6px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.85rem;
+}
+
+/* Detalle HV en admin */
+.detalle-hv {
+    display: none;
+    background-color: #F8F9FA;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 16px;
+}
+
+.detalle-hv.activo {
+    display: block;
+}
+
+.detalle-hv h3 {
+    margin-bottom: 12px;
+}
+
+.detalle-hv .info-grupo {
+    margin-bottom: 14px;
+}
+
+.detalle-hv .info-grupo h4 {
+    font-size: 0.85rem;
+    color: var(--primario);
+    margin-bottom: 6px;
+}
+
+.cambiar-estado {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--borde);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background-color: var(--primario-oscuro);
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    padding: 16px;
+    font-size: 0.78rem;
+    margin-top: 30px;
+}
+
+/* ============================================
+   ALERTA/EXITO general
+   ============================================ */
+.alerta {
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: none;
+}
+
+.alerta-error {
+    background-color: #F8D7DA;
+    color: #721C24;
+    border: 1px solid #F5C6CB;
+}
+
+.alerta-exito {
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+}
+
+.alerta.visible {
+    display: block;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 600px) {
+    .fila-campos {
+        flex-direction: column;
+    }
+
+    .campo {
+        min-width: 100%;
+    }
+
+    nav {
+        gap: 4px;
+    }
+
+    nav a, nav span {
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+
+    section {
+        padding: 18px 16px;
+    }
+
+    .botones-formulario {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
