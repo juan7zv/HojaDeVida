@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiempo de Experiencia - Hoja de Vida</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <header>
+        <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
+        <p>Persona Natural</p>
+    </header>
+
+    <nav>
+        <a href="datos-personales.html" class="paso-completado">1. Datos Personales</a>
+        <a href="formacion-academica.html" class="paso-completado">2. Formación Académica</a>
+        <a href="experiencia-laboral.html" class="paso-completado">3. Experiencia Laboral</a>
+        <span class="paso-activo">4. Tiempo Experiencia</span>
+        <a href="certificacion.html">5. Certificación</a>
+    </nav>
+
+    <main>
+        <form action="certificacion.html" method="get">
+            <div id="alertaGeneral" class="alerta"></div>
+
+            <section>
+                <h2><span class="numero-seccion">4</span> Tiempo Total de Experiencia</h2>
+                <p style="font-size:0.82rem;color:#6C757D;margin-bottom:16px;">
+                    Indique el tiempo total de su experiencia laboral en número de años y meses. (Cálculo manual)
+                </p>
+
+                <div id="listaOcupaciones">
+                    <div class="registro-dinamico" id="ocupacion_1">
+                        <div class="registro-header">
+                            <h4>Ocupación #1</h4>
+                        </div>
+                        <div class="fila-campos">
+                            <div class="campo">
+                                <label class="requerido">Ocupación</label>
+                                <select id="tipoOcup_1" required>
+                                    <option value=""> Seleccionar </option>
+                                    <option value="servidorPublico">Servidor Público</option>
+                                    <option value="empleadoPrivado">Empleado Sector Privado</option>
+                                    <option value="independiente">Trabajador Independiente</option>
+                                </select>
+                            </div>
+                            <div class="campo">
+                                <label>Años</label>
+                                <input type="number" id="aniosOcup_1" min="0" max="50" value="0">
+                            </div>
+                            <div class="campo">
+                                <label>Meses</label>
+                                <input type="number" id="mesesOcup_1" min="0" max="11" value="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Manual -->
+                <div
+                    style="margin-top:20px;padding:16px;background:#f4f6f9;border-radius:8px;border: 1px solid var(--borde);">
+                    <h3 style="color:var(--primario);margin:0 0 12px;text-align:center;">Tiempo Total de Experiencia
+                        Registrado</h3>
+                    <div class="fila-campos" style="justify-content:center; max-width: 400px; margin: 0 auto;">
+                        <div class="campo">
+                            <label class="requerido">Suma Total de Años</label>
+                            <input type="number" name="totalAnios" min="0" required>
+                        </div>
+                        <div class="campo">
+                            <label class="requerido">Suma Total de Meses</label>
+                            <input type="number" name="totalMeses" min="0" required>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
+                    <a href="experiencia-laboral.html" class="btn btn-secundario"
+                        style="text-decoration:none; display:inline-block; text-align:center;">← Anterior</a>
+                    <div>
+                        <button type="submit" class="btn btn-primario">Siguiente ➜</button>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </main>
+
+    <footer>
+        <p>Formato Único Hoja de Vida &copy; 2026 · Modo Estático 4 de 5</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
