@@ -43,7 +43,7 @@ function initFechas() {
     // 2. Años: min 1941, max 2026
     const inputsAnio = document.querySelectorAll('input[type="number"][id*="Anio"], input[type="number"][id*="anio"]');
     inputsAnio.forEach(input => {
-        input.min = 1941;
+        input.min = 0;
         input.max = 2026;
         input.addEventListener('input', () => {
             if (input.value && input.value > 2026) input.value = 2026;
