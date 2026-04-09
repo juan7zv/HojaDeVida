@@ -225,15 +225,18 @@ section h3 {
     min-height: 70px;
 }
 
-/* Quitar flechas a input de año de nacimiento */
-#nacAnio::-webkit-inner-spin-button,
-#nacAnio::-webkit-outer-spin-button {
+/* Quitar flechas a input de años excepto experiencia (aniosOcup) */
+input[type=number][id*="Anio"]::-webkit-inner-spin-button,
+input[type=number][id*="Anio"]::-webkit-outer-spin-button,
+input[type=number][id*="anio"]:not([id^="aniosOcup"])::-webkit-inner-spin-button,
+input[type=number][id*="anio"]:not([id^="aniosOcup"])::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
     margin: 0;
 }
 
-#nacAnio {
+input[type=number][id*="Anio"],
+input[type=number][id*="anio"]:not([id^="aniosOcup"]) {
     -moz-appearance: textfield;
     appearance: textfield;
 }

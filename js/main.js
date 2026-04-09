@@ -40,16 +40,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initFechas() {
-    // 2. Años: min 1941, max 2026
-    const inputsAnio = document.querySelectorAll('input[type="number"][id*="Anio"], input[type="number"][id*="anio"]');
+    // 2. Años de fechas cronológicas: min 1941, max 2026. (Saltamos aniosOcup, que es candidad y no un año cronológico)
+    const inputsAnio = document.querySelectorAll('input[type="number"][id*="Anio"], input[type="number"][id*="anio"]:not([id^="aniosOcup"])');
     inputsAnio.forEach(input => {
-        input.min = 0;
+        input.min = 1941;
         input.max = 2026;
         input.addEventListener('input', () => {
             if (input.value && input.value > 2026) input.value = 2026;
         });
         input.addEventListener('blur', () => {
-            if (input.value && input.value < 1941) input.value = 1941;
+            if (input.value !== '' && input.value < 1941) {
+                // Notificamos como error pero no sobreescribimos arbitrariament el campo vacío o incompleto.
+                input.style.borderColor = 'var(--error)';
+                input.setCustomValidity("El año no puede ser menor a 1941.");
+            } else {
+                input.style.borderColor = '';
+                input.setCustomValidity("");
+            }
         });
     });
 
