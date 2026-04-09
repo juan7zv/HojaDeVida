@@ -225,6 +225,19 @@ section h3 {
     min-height: 70px;
 }
 
+/* Quitar flechas a input de año de nacimiento */
+#nacAnio::-webkit-inner-spin-button,
+#nacAnio::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+#nacAnio {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
 /* Campo con error */
 .campo-error input,
 .campo-error select,
