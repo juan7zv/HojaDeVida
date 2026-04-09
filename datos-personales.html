@@ -22,211 +22,207 @@
     </nav>
 
     <main>
-        <div id="alertaGeneral" class="alerta"></div>
+        <form action="formacion-academica.html" method="get">
+            <div id="alertaGeneral" class="alerta"></div>
 
-        <section>
-            <h2><span class="numero-seccion">1</span> Datos Personales</h2>
+            <section>
+                <h2><span class="numero-seccion">1</span> Datos Personales</h2>
 
-            <!-- Nombres y apellidos -->
-            <div class="fila-campos">
-                <div class="campo">
-                    <label for="primerApellido">Primer Apellido</label>
-                    <input type="text" id="primerApellido" placeholder="Ej: García">
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo">
-                    <label for="segundoApellido">Segundo Apellido (o de casada)</label>
-                    <input type="text" id="segundoApellido" placeholder="Ej: López">
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo">
-                    <label for="nombres">Nombres</label>
-                    <input type="text" id="nombres" placeholder="Ej: Carlos Andrés">
-                    <span class="mensaje-error"></span>
-                </div>
-            </div>
-
-            <!-- Documento de identificación -->
-            <h3>Documento de Identificación</h3>
-            <div class="fila-campos">
-                <div class="campo" id="contenedorTipoDoc">
-                    <label>Tipo de Documento</label>
-                    <div class="grupo-radio">
-                        <label><input type="radio" name="tipoDocumento" value="CC"> C.C</label>
-                        <label><input type="radio" name="tipoDocumento" value="CE"> C.E</label>
-                        <label><input type="radio" name="tipoDocumento" value="PAS"> PAS</label>
+                <!-- Nombres y apellidos -->
+                <div class="fila-campos">
+                    <div class="campo">
+                        <label for="primerApellido" class="requerido">Primer Apellido</label>
+                        <input type="text" id="primerApellido" placeholder="Ej: García" required>
                     </div>
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo">
-                    <label for="numeroDocumento">Número</label>
-                    <input type="text" id="numeroDocumento" placeholder="Ej: 1030456789">
-                    <span class="mensaje-error"></span>
-                </div>
-            </div>
-
-            <div class="fila-campos">
-                <div class="campo" id="contenedorSexo">
-                    <label>Sexo</label>
-                    <div class="grupo-radio">
-                        <label><input type="radio" name="sexo" value="F"> Femenino</label>
-                        <label><input type="radio" name="sexo" value="M"> Masculino</label>
+                    <div class="campo">
+                        <label for="segundoApellido">Segundo Apellido (o de casada)</label>
+                        <input type="text" id="segundoApellido" placeholder="Ej: López">
                     </div>
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo" id="contenedorNacionalidad">
-                    <label>Nacionalidad</label>
-                    <div class="grupo-radio">
-                        <label><input type="radio" name="nacionalidad" value="COL"> Colombiano</label>
-                        <label><input type="radio" name="nacionalidad" value="EXT"> Extranjero</label>
-                    </div>
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo">
-                    <label for="paisNacionalidad">País</label>
-                    <select id="paisNacionalidad"></select>
-                    <span class="mensaje-error"></span>
-                </div>
-            </div>
-
-            <!-- Libreta Militar -->
-            <h3>Libreta Militar</h3>
-            <div class="fila-campos">
-                <div class="campo">
-                    <label>Clase</label>
-                    <div class="grupo-radio">
-                        <label><input type="radio" name="libretaClase" value="primera"> Primera Clase</label>
-                        <label><input type="radio" name="libretaClase" value="segunda"> Segunda Clase</label>
+                    <div class="campo">
+                        <label for="nombres" class="requerido">Nombres</label>
+                        <input type="text" id="nombres" placeholder="Ej: Carlos Andrés" required>
                     </div>
                 </div>
-                <div class="campo">
-                    <label for="libretaNumero">Número</label>
-                    <input type="text" id="libretaNumero" placeholder="Número de libreta">
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo">
-                    <label for="distritoMilitar">Distrito Militar (D.M)</label>
-                    <select id="distritoMilitar"></select>
-                    <span class="mensaje-error"></span>
-                </div>
-            </div>
 
-            <!-- Fecha y lugar de nacimiento -->
-            <h3>Fecha y Lugar de Nacimiento</h3>
-            <div class="fila-campos">
-                <div class="campo">
-                    <label for="nacDia">Día</label>
-                    <select id="nacDia"></select>
-                    <span class="mensaje-error"></span>
+                <!-- Documento de identificación -->
+                <h3>Documento de Identificación</h3>
+                <div class="fila-campos">
+                    <div class="campo" id="contenedorTipoDoc">
+                        <label class="requerido">Tipo de Documento</label>
+                        <div class="grupo-radio">
+                            <label><input type="radio" name="tipoDocumento" value="CC" required> C.C</label>
+                            <label><input type="radio" name="tipoDocumento" value="CE"> C.E</label>
+                            <label><input type="radio" name="tipoDocumento" value="PAS"> PAS</label>
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <label for="numeroDocumento" class="requerido">Número</label>
+                        <input type="number" id="numeroDocumento" placeholder="Ej: 1030456789" required>
+                    </div>
                 </div>
-                <div class="campo">
-                    <label for="nacMes">Mes</label>
-                    <select id="nacMes"></select>
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo">
-                    <label for="nacAnio">Año</label>
-                    <input type="number" id="nacAnio" min="1940" max="2010" placeholder="Ej: 1990">
-                    <span class="mensaje-error"></span>
-                </div>
-            </div>
 
-            <div class="fila-campos">
-                <div class="campo">
-                    <label for="paisNac">País de Nacimiento</label>
-                    <select id="paisNac"></select>
-                    <span class="mensaje-error"></span>
+                <div class="fila-campos">
+                    <div class="campo" id="contenedorSexo">
+                        <label class="requerido">Sexo</label>
+                        <div class="grupo-radio">
+                            <label><input type="radio" name="sexo" value="F" required> Femenino</label>
+                            <label><input type="radio" name="sexo" value="M"> Masculino</label>
+                        </div>
+                    </div>
+                    <div class="campo" id="contenedorNacionalidad">
+                        <label class="requerido">Nacionalidad</label>
+                        <div class="grupo-radio">
+                            <label><input type="radio" name="nacionalidad" value="COL" required> Colombiano</label>
+                            <label><input type="radio" name="nacionalidad" value="EXT"> Extranjero</label>
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <label for="paisNacionalidad">País</label>
+                        <select id="paisNacionalidad">
+                            <option value="colombia">Colombia</option>
+                            <option value="venezuela">Venezuela</option>
+                            <option value="ecuador">Ecuador</option>
+                            <option value="peru">Perú</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="campo">
-                    <label for="deptoNac">Departamento</label>
-                    <select id="deptoNac" onchange="cargarMunicipios('deptoNac','municipioNac')"></select>
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo">
-                    <label for="municipioNac">Municipio</label>
-                    <select id="municipioNac"><option value="">-- Seleccionar --</option></select>
-                    <span class="mensaje-error"></span>
-                </div>
-            </div>
 
-            <!-- Dirección de correspondencia -->
-            <h3>Dirección de Correspondencia</h3>
-            <div class="fila-campos">
-                <div class="campo" style="flex:2">
-                    <label for="direccionCorr">Dirección</label>
-                    <input type="text" id="direccionCorr" placeholder="Ej: Calle 45 #12-34">
-                    <span class="mensaje-error"></span>
+                <!-- Libreta Militar -->
+                <h3>Libreta Militar</h3>
+                <div class="fila-campos">
+                    <div class="campo">
+                        <label>Clase</label>
+                        <div class="grupo-radio">
+                            <label><input type="radio" name="libretaClase" value="primera"> Primera Clase</label>
+                            <label><input type="radio" name="libretaClase" value="segunda"> Segunda Clase</label>
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <label for="libretaNumero">Número</label>
+                        <input type="text" id="libretaNumero" placeholder="Número de libreta">
+                    </div>
+                    <div class="campo">
+                        <label for="distritoMilitar">Distrito Militar (D.M)</label>
+                        <select id="distritoMilitar">
+                            <option value="1">Distrito Militar 1</option>
+                            <option value="2">Distrito Militar 2</option>
+                            <option value="3">Distrito Militar 3</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="fila-campos">
-                <div class="campo">
-                    <label for="paisCorr">País</label>
-                    <select id="paisCorr"></select>
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo">
-                    <label for="deptoCorr">Departamento</label>
-                    <select id="deptoCorr" onchange="cargarMunicipios('deptoCorr','municipioCorr')"></select>
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo">
-                    <label for="municipioCorr">Municipio</label>
-                    <select id="municipioCorr"><option value="">-- Seleccionar --</option></select>
-                    <span class="mensaje-error"></span>
-                </div>
-            </div>
-            <div class="fila-campos">
-                <div class="campo">
-                    <label for="telefono">Teléfono</label>
-                    <input type="tel" id="telefono" placeholder="Ej: 3101234567">
-                    <span class="mensaje-error"></span>
-                </div>
-                <div class="campo">
-                    <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" placeholder="Ej: correo@email.com">
-                    <span class="mensaje-error"></span>
-                </div>
-            </div>
 
-            <!-- Botones -->
-            <div class="botones-formulario">
-                <button class="btn btn-secundario" onclick="irAnterior('index.html')">← Volver</button>
-                <div>
-                    <button class="btn btn-acento" onclick="previsualizarDatosPersonales()">👁 Previsualizar</button>
-                    <button class="btn btn-primario" onclick="if(validarDatosPersonales()){guardarDatosPersonales();irSiguiente('formacion-academica.html');}else{mostrarAlerta('alertaGeneral','Complete los campos obligatorios.','error');}">Siguiente ➜</button>
+                <!-- Fecha y lugar de nacimiento -->
+                <h3>Fecha y Lugar de Nacimiento</h3>
+                <div class="fila-campos">
+                    <div class="campo">
+                        <label for="nacDia" class="requerido">Día</label>
+                        <select id="nacDia" required>
+                            <option value="">-- Día --</option>
+                            <option value="01">01</option><option value="02">02</option>
+                            <option value="15">15</option><option value="28">28</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="nacMes" class="requerido">Mes</label>
+                        <select id="nacMes" required>
+                            <option value="">-- Mes --</option>
+                            <option value="01">Enero</option><option value="02">Febrero</option>
+                            <option value="05">Mayo</option><option value="12">Diciembre</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="nacAnio" class="requerido">Año</label>
+                        <input type="number" id="nacAnio" min="1940" max="2010" placeholder="Ej: 1990" required>
+                    </div>
                 </div>
-            </div>
-        </section>
+
+                <div class="fila-campos">
+                    <div class="campo">
+                        <label for="paisNac" class="requerido">País de Nacimiento</label>
+                        <select id="paisNac" required>
+                            <option value="colombia">Colombia</option>
+                            <option value="extranjero">Extranjero</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="deptoNac" class="requerido" id="labelDeptoNac">Departamento</label>
+                        <select id="deptoNac" required>
+                            <option value="">-- Seleccionar --</option>
+                            <option value="bogota">Bogotá D.C.</option>
+                            <option value="antioquia">Antioquia</option>
+                            <option value="valle">Valle del Cauca</option>
+                            <option value="extranjero">N/A - Extranjero</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="municipioNac" class="requerido" id="labelMunNac">Municipio</label>
+                        <select id="municipioNac" required>
+                            <option value="">-- Seleccionar --</option>
+                            <option value="bogota">Bogotá</option>
+                            <option value="medellin">Medellín</option>
+                            <option value="cali">Cali</option>
+                            <option value="extranjero">N/A - Extranjero</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Dirección de correspondencia -->
+                <h3>Dirección de Correspondencia</h3>
+                <div class="fila-campos">
+                    <div class="campo" style="flex:2">
+                        <label for="direccionCorr" class="requerido">Dirección</label>
+                        <input type="text" id="direccionCorr" placeholder="Ej: Calle 45 #12-34" required>
+                    </div>
+                </div>
+                <div class="fila-campos">
+                    <div class="campo">
+                        <label for="paisCorr" class="requerido">País</label>
+                        <select id="paisCorr" required>
+                            <option value="colombia">Colombia</option>
+                            <option value="extranjero">Extranjero</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="deptoCorr" class="requerido" id="labelDeptoCorr">Departamento</label>
+                        <select id="deptoCorr" required>
+                            <option value="">-- Seleccionar --</option>
+                            <option value="bogota">Bogotá D.C.</option>
+                            <option value="antioquia">Antioquia</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="municipioCorr" class="requerido" id="labelMunCorr">Municipio</label>
+                        <select id="municipioCorr" required>
+                            <option value="">-- Seleccionar --</option>
+                            <option value="bogota">Bogotá</option>
+                            <option value="medellin">Medellín</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fila-campos">
+                    <div class="campo">
+                        <label for="telefono" class="requerido">Teléfono</label>
+                        <input type="tel" id="telefono" placeholder="Ej: 3101234567" required>
+                    </div>
+                    <div class="campo">
+                        <label for="email" class="requerido">Correo Electrónico</label>
+                        <input type="email" id="email" placeholder="Ej: correo@email.com" required>
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <div class="botones-formulario">
+                    <a href="index.html" class="btn btn-secundario" style="text-decoration:none; display:inline-block; text-align:center;">← Volver</a>
+                    <div>
+                        <button type="submit" class="btn btn-primario">Siguiente ➜</button>
+                    </div>
+                </div>
+            </section>
+        </form>
     </main>
 
-    <!-- Modal de previsualización -->
-    <div class="modal-overlay" id="modalOverlay" onclick="cerrarModal()">
-        <div class="modal-contenido" id="modalContenido" onclick="event.stopPropagation()"></div>
-    </div>
-
     <footer>
-        <p>Formato Único Hoja de Vida &copy; 2026 · Sección 1 de 5</p>
+        <p>Formato Único Hoja de Vida &copy; 2026 · Modo Estático 1 de 5</p>
     </footer>
-
-    <script src="js/datos.js"></script>
-    <script src="js/validacion.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/app2.js"></script>
-    <script>
-        // Cargar selects al iniciar
-        window.onload = function() {
-            cargarSelect("paisNacionalidad", paises);
-            cargarSelect("distritoMilitar", distritosMilitares);
-            // Dias
-            var dias = [{valor:"", texto:"-- Día --"}];
-            for (var d=1;d<=31;d++) { var v=d<10?"0"+d:""+d; dias.push({valor:v,texto:v}); }
-            cargarSelect("nacDia", dias);
-            cargarSelect("nacMes", meses);
-            cargarSelect("paisNac", paises);
-            cargarSelect("deptoNac", departamentos);
-            cargarSelect("paisCorr", paises);
-            cargarSelect("deptoCorr", departamentos);
-        };
-    </script>
 </body>
 </html>

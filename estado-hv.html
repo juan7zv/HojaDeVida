@@ -38,8 +38,14 @@
 
             <div style="margin-top:20px;">
                 <h3>Resumen de la Hoja de Vida Enviada</h3>
-                <div id="resumenHV" style="margin-top:12px;">
-                    <p style="color:var(--texto-claro);font-size:0.85rem;">La información se registró en el sistema y está pendiente de revisión.</p>
+                <div id="resumenHV" style="margin-top:12px; background:#fff; padding:15px; border:1px solid #ddd; border-top:3px solid var(--primario); border-radius:5px;">
+                    <p style="color:var(--texto-claro);font-size:0.85rem;margin-bottom:10px;">La información se registró en el sistema y está pendiente de revisión.</p>
+                    <strong style="color:var(--texto);">Nombre:</strong> Usuario Estático<br><br>
+                    <strong style="color:var(--texto);">Documento:</strong> C.C 123456789<br><br>
+                    <strong style="color:var(--texto);">Email:</strong> estatico@email.com<br><br>
+                    <strong style="color:var(--texto);">Teléfono:</strong> 3101234567<br><br>
+                    <strong style="color:var(--texto);">Estado:</strong> Diligenciada<br><br>
+                    <strong style="color:var(--texto);">Fecha de Envío:</strong> 2026-04-08<br>
                 </div>
             </div>
         </section>
@@ -53,29 +59,7 @@
     </main>
 
     <footer>
-        <p>Formato Único Hoja de Vida &copy; 2026 - Desarrollo Web</p>
+        <p>Formato Único Hoja de Vida &copy; 2026 - Modo Estático</p>
     </footer>
-
-    <script src="js/datos.js"></script>
-    <script src="js/validacion.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/app2.js"></script>
-    <script>
-        window.onload = function() {
-            // Mostrar resumen si existe la hoja de vida actual
-            if (hojaVidaActual && hojaVidaActual.datosPersonales) {
-                var dp = hojaVidaActual.datosPersonales;
-                var resumenDiv = document.getElementById("resumenHV");
-                var h = "";
-                h += datoPrev("Nombre", dp.nombres + " " + dp.primerApellido + " " + dp.segundoApellido);
-                h += datoPrev("Documento", dp.tipoDocumento + " " + dp.numeroDocumento);
-                h += datoPrev("Email", dp.email);
-                h += datoPrev("Teléfono", dp.telefono);
-                h += datoPrev("Estado", "Diligenciada");
-                h += datoPrev("Fecha", hojaVidaActual.fechaCreacion || new Date().toISOString().split("T")[0]);
-                resumenDiv.innerHTML = h;
-            }
-        };
-    </script>
 </body>
 </html>

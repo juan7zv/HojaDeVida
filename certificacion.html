@@ -21,64 +21,59 @@
     </nav>
 
     <main>
-        <div id="alertaGeneral" class="alerta"></div>
+        <form action="estado-hv.html" method="get">
+            <div id="alertaGeneral" class="alerta"></div>
 
-        <!-- Firma del servidor público o contratista -->
-        <section>
-            <h2><span class="numero-seccion">5</span> Firma del Servidor Público o Contratista</h2>
+            <!-- Firma del servidor público o contratista -->
+            <section>
+                <h2><span class="numero-seccion">5</span> Firma del Servidor Público o Contratista</h2>
 
-            <div style="background-color:#F8F9FA;padding:20px;border-radius:8px;border-left:3px solid var(--primario);margin-bottom:20px;line-height:1.8;font-size:0.88rem;">
-                <p>MANIFIESTO BAJO LA GRAVEDAD DEL JURAMENTO QUE:</p>
-                <br>
-                <p>
-                    <strong>SI</strong> ○ &nbsp;&nbsp; <strong>NO</strong> ○ &nbsp;&nbsp; ME ENCUENTRO DENTRO DE LAS CAUSALES DE INHABILIDAD E INCOMPATIBILIDAD DEL ORDEN CONSTITUCIONAL O LEGAL, PARA EJERCER CARGOS EMPLEOS PÚBLICOS O PARA CELEBRAR CONTRATOS DE PRESTACIÓN DE SERVICIOS CON LA ADMINISTRACIÓN PÚBLICA.
-                </p>
-                <br>
-                <p>
-                    PARA TODOS LOS EFECTOS LEGALES, CERTIFICO QUE LOS DATOS POR MI ANOTADOS EN EL PRESENTE FORMATO ÚNICO DE HOJA DE VIDA, SON VERACES. (ARTÍCULO 5o. DE LA LEY 190/95).
-                </p>
-            </div>
-
-            <div class="campo" id="contenedorJuramento">
-                <label>¿Acepta la declaración jurada anterior?</label>
-                <div class="grupo-radio">
-                    <label><input type="radio" name="aceptaJuramento" value="si"> Sí, acepto</label>
-                    <label><input type="radio" name="aceptaJuramento" value="no"> No acepto</label>
+                <div style="background-color:#F8F9FA;padding:20px;border-radius:8px;border-left:3px solid var(--primario);margin-bottom:20px;line-height:1.8;font-size:0.88rem;">
+                    <p>MANIFIESTO BAJO LA GRAVEDAD DEL JURAMENTO QUE:</p>
+                    <br>
+                    <p>
+                        <strong>SI</strong> ○ &nbsp;&nbsp; <strong>NO</strong> ○ &nbsp;&nbsp; ME ENCUENTRO DENTRO DE LAS CAUSALES DE INHABILIDAD E INCOMPATIBILIDAD DEL ORDEN CONSTITUCIONAL O LEGAL, PARA EJERCER CARGOS EMPLEOS PÚBLICOS O PARA CELEBRAR CONTRATOS DE PRESTACIÓN DE SERVICIOS CON LA ADMINISTRACIÓN PÚBLICA.
+                    </p>
+                    <br>
+                    <p>
+                        PARA TODOS LOS EFECTOS LEGALES, CERTIFICO QUE LOS DATOS POR MI ANOTADOS EN EL PRESENTE FORMATO ÚNICO DE HOJA DE VIDA, SON VERACES. (ARTÍCULO 5o. DE LA LEY 190/95).
+                    </p>
                 </div>
-                <span class="mensaje-error"></span>
-            </div>
-        </section>
 
-        <!-- Observaciones -->
-        <section>
-            <h2><span class="numero-seccion">6</span> Observaciones</h2>
-            <p style="font-size:0.82rem;color:#6C757D;margin-bottom:12px;">
-                Certifico que la información aquí suministrada ha sido constatada frente a los documentos que han sido presentados como soporte.
-            </p>
+                <div class="campo" id="contenedorJuramento">
+                    <label class="requerido">¿Acepta la declaración jurada anterior?</label>
+                    <div class="grupo-radio">
+                        <label><input type="radio" name="aceptaJuramento" value="si" required> Sí, acepto</label>
+                        <label><input type="radio" name="aceptaJuramento" value="no"> No acepto</label>
+                    </div>
+                </div>
+            </section>
 
-            <div class="campo">
-                <label for="observaciones">Observaciones del Jefe de Recursos Humanos y/o Contratos</label>
-                <textarea id="observaciones" rows="4" placeholder="Escriba aquí sus observaciones (opcional)"></textarea>
-                <span class="mensaje-error"></span>
-            </div>
-        </section>
+            <!-- Observaciones -->
+            <section>
+                <h2><span class="numero-seccion">6</span> Observaciones</h2>
+                <p style="font-size:0.82rem;color:#6C757D;margin-bottom:12px;">
+                    Certifico que la información aquí suministrada ha sido constatada frente a los documentos que han sido presentados como soporte.
+                </p>
 
-        <!-- Botones finales -->
-        <section>
-            <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
-                <button class="btn btn-secundario" onclick="irAnterior('tiempo-experiencia.html')">← Anterior</button>
-                <button class="btn btn-primario" style="font-size:1rem;padding:12px 30px;" onclick="enviarHojaDeVida()">✓ Enviar Hoja de Vida</button>
-            </div>
-        </section>
+                <div class="campo">
+                    <label for="observaciones">Observaciones del Jefe de Recursos Humanos y/o Contratos</label>
+                    <textarea id="observaciones" rows="4" placeholder="Escriba aquí sus observaciones (opcional)"></textarea>
+                </div>
+            </section>
+
+            <!-- Botones finales -->
+            <section>
+                <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
+                    <a href="tiempo-experiencia.html" class="btn btn-secundario" style="text-decoration:none; display:inline-block; text-align:center;">← Anterior</a>
+                    <button type="submit" class="btn btn-primario" style="font-size:1rem;padding:12px 30px;">✓ Enviar Hoja de Vida</button>
+                </div>
+            </section>
+        </form>
     </main>
 
     <footer>
-        <p>Formato Único Hoja de Vida &copy; 2026 · Sección 5 de 5</p>
+        <p>Formato Único Hoja de Vida &copy; 2026 · Modo Estático 5 de 5</p>
     </footer>
-
-    <script src="js/datos.js"></script>
-    <script src="js/validacion.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/app2.js"></script>
 </body>
 </html>

@@ -21,52 +21,69 @@
     </nav>
 
     <main>
-        <div id="alertaGeneral" class="alerta"></div>
+        <form action="certificacion.html" method="get">
+            <div id="alertaGeneral" class="alerta"></div>
 
-        <section>
-            <h2><span class="numero-seccion">4</span> Tiempo Total de Experiencia</h2>
-            <p style="font-size:0.82rem;color:#6C757D;margin-bottom:16px;">
-                Indique el tiempo total de su experiencia laboral en número de años y meses.
-            </p>
-
-            <div id="listaOcupaciones">
-                <!-- Ocupaciones dinámicas -->
-            </div>
-
-            <button type="button" class="btn btn-agregar" onclick="agregarOcupacion()">+ Agregar Ocupación</button>
-
-            <!-- Total calculado -->
-            <div style="margin-top:20px;padding:16px;background:#E8F5E9;border-radius:8px;text-align:center;">
-                <h3 style="color:#1B4332;margin:0 0 8px;">Tiempo Total de Experiencia</h3>
-                <p style="font-size:1.4rem;font-weight:700;color:#2D6A4F;margin:0;">
-                    <span id="totalAnios">0</span> años y <span id="totalMeses">0</span> meses
+            <section>
+                <h2><span class="numero-seccion">4</span> Tiempo Total de Experiencia</h2>
+                <p style="font-size:0.82rem;color:#6C757D;margin-bottom:16px;">
+                    Indique el tiempo total de su experiencia laboral en número de años y meses. (Cálculo manual)
                 </p>
-            </div>
-        </section>
 
-        <section>
-            <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
-                <button class="btn btn-secundario" onclick="irAnterior('experiencia-laboral.html')">← Anterior</button>
-                <div>
-                    <button class="btn btn-acento" onclick="previsualizarTiempo()">👁 Previsualizar</button>
-                    <button class="btn btn-primario" onclick="if(validarTiempoExperiencia()){guardarTiempoExperiencia();irSiguiente('certificacion.html');}else{mostrarAlerta('alertaGeneral','Complete los campos.','error');}">Siguiente ➜</button>
+                <div id="listaOcupaciones">
+                    <div class="registro-dinamico" id="ocupacion_1">
+                        <div class="registro-header"><h4>Ocupación #1</h4></div>
+                        <div class="fila-campos">
+                            <div class="campo">
+                                <label class="requerido">Ocupación</label>
+                                <select id="tipoOcup_1" required>
+                                    <option value="">-- Seleccionar --</option>
+                                    <option value="servidorPublico">Servidor Público</option>
+                                    <option value="empleadoPrivado">Empleado Sector Privado</option>
+                                    <option value="independiente">Trabajador Independiente</option>
+                                </select>
+                            </div>
+                            <div class="campo">
+                                <label>Años</label>
+                                <input type="number" id="aniosOcup_1" min="0" max="50" value="0">
+                            </div>
+                            <div class="campo">
+                                <label>Meses</label>
+                                <input type="number" id="mesesOcup_1" min="0" max="11" value="0">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+
+                <!-- Total Manual -->
+                <div style="margin-top:20px;padding:16px;background:#f4f6f9;border-radius:8px;border: 1px solid var(--borde);">
+                    <h3 style="color:var(--primario);margin:0 0 12px;text-align:center;">Tiempo Total de Experiencia Registrado</h3>
+                    <div class="fila-campos" style="justify-content:center; max-width: 400px; margin: 0 auto;">
+                        <div class="campo">
+                            <label class="requerido">Suma Total de Años</label>
+                            <input type="number" name="totalAnios" min="0" required>
+                        </div>
+                        <div class="campo">
+                            <label class="requerido">Suma Total de Meses</label>
+                            <input type="number" name="totalMeses" min="0" required>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
+                    <a href="experiencia-laboral.html" class="btn btn-secundario" style="text-decoration:none; display:inline-block; text-align:center;">← Anterior</a>
+                    <div>
+                        <button type="submit" class="btn btn-primario">Siguiente ➜</button>
+                    </div>
+                </div>
+            </section>
+        </form>
     </main>
 
-    <!-- Modal -->
-    <div class="modal-overlay" id="modalOverlay" onclick="cerrarModal()">
-        <div class="modal-contenido" id="modalContenido" onclick="event.stopPropagation()"></div>
-    </div>
-
     <footer>
-        <p>Formato Único Hoja de Vida &copy; 2026 · Sección 4 de 5</p>
+        <p>Formato Único Hoja de Vida &copy; 2026 · Modo Estático 4 de 5</p>
     </footer>
-
-    <script src="js/datos.js"></script>
-    <script src="js/validacion.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/app2.js"></script>
 </body>
 </html>
