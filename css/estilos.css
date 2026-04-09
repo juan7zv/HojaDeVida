@@ -8,10 +8,12 @@
 
 /* Variables de colores */
 :root {
-    --primario: #005689; /* Azul formal */
+    --primario: #005689;
+    /* Azul formal */
     --primario-oscuro: #003459;
     --primario-claro: #0077b6;
-    --acento: #00b4d8; /* Cian */
+    --acento: #00b4d8;
+    /* Cian */
     --acento-oscuro: #0096c7;
     --fondo: #f4f6f9;
     --superficie: #FFFFFF;
@@ -74,7 +76,8 @@ nav {
     flex-wrap: wrap;
 }
 
-nav a, nav span {
+nav a,
+nav span {
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 20px;
@@ -178,6 +181,9 @@ section h3 {
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 0.3px;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
 }
 
 .campo label.requerido::after {
@@ -240,15 +246,18 @@ section h3 {
 }
 
 /* Radio buttons y checkboxes */
-.grupo-radio, .grupo-check {
+.grupo-radio,
+.grupo-check {
     display: flex;
     gap: 16px;
     align-items: center;
     flex-wrap: wrap;
     margin-top: 4px;
+    min-height: 41px;
 }
 
-.grupo-radio label, .grupo-check label {
+.grupo-radio label,
+.grupo-check label {
     font-size: 0.84rem;
     font-weight: 400;
     text-transform: none;
@@ -290,7 +299,7 @@ section h3 {
     background-color: #E0E0E0;
 }
 
-.grupo-grados input:checked + span {
+.grupo-grados input:checked+span {
     color: var(--primario);
     font-weight: 600;
 }
@@ -699,7 +708,8 @@ footer {
         gap: 4px;
     }
 
-    nav a, nav span {
+    nav a,
+    nav span {
         padding: 6px 10px;
         font-size: 0.7rem;
     }
