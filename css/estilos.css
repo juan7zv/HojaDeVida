@@ -8,17 +8,17 @@
 
 /* Variables de colores */
 :root {
-    --primario: #2D6A4F;
-    --primario-oscuro: #1B4332;
-    --primario-claro: #52B788;
-    --acento: #D4A373;
-    --acento-oscuro: #B07D4F;
-    --fondo: #FEFAE0;
+    --primario: #005689; /* Azul formal */
+    --primario-oscuro: #003459;
+    --primario-claro: #0077b6;
+    --acento: #00b4d8; /* Cian */
+    --acento-oscuro: #0096c7;
+    --fondo: #f4f6f9;
     --superficie: #FFFFFF;
     --texto: #2B2D42;
     --texto-claro: #6C757D;
     --error: #E63946;
-    --exito: #2D6A4F;
+    --exito: #028090;
     --borde: #D5D8DC;
     --sombra: rgba(0, 0, 0, 0.08);
 }
@@ -158,10 +158,10 @@ section h3 {
    FORMULARIOS
    ============================================ */
 .fila-campos {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
     margin-bottom: 14px;
-    flex-wrap: wrap;
 }
 
 .campo {
@@ -178,6 +178,13 @@ section h3 {
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 0.3px;
+}
+
+.campo label.requerido::after {
+    content: ' *';
+    color: var(--error);
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 .campo input[type="text"],
