@@ -60,15 +60,22 @@ function initFechas() {
 
     if (nacDia && nacMes) {
         function actualizarDias() {
-            let mes = nacMes.value; 
+            let mes = nacMes.value;
             let anio = nacAnio ? parseInt(nacAnio.value) : 2026;
-            
+
             let diasTotales = 31;
             if (mes === '02') {
                 // bisiesto o defaults 28 (si no hay año aún, 28)
                 diasTotales = (!anio || isNaN(anio) || ((anio % 4 !== 0 || anio % 100 === 0) && anio % 400 !== 0)) ? 28 : 29;
             } else if (['04', '06', '09', '11'].includes(mes)) {
                 diasTotales = 30;
+            }
+
+            let d = new Date();
+            if (anio === d.getFullYear() && parseInt(mes) === (d.getMonth() + 1)) {
+                if (diasTotales > d.getDate()) {
+                    diasTotales = d.getDate();
+                }
             }
 
             let currentVal = nacDia.value;
@@ -82,20 +89,39 @@ function initFechas() {
                 nacDia.value = currentVal;
             }
         }
-        
+
         nacMes.addEventListener('change', actualizarDias);
-        if (nacAnio) nacAnio.addEventListener('input', actualizarDias);
-        
-        // Inicializar selectores completos (antes hardcodeados a medias)
-        nacMes.innerHTML = '<option value="">-- Mes --</option>' +
-            '<option value="01">Enero</option><option value="02">Febrero</option>' +
-            '<option value="03">Marzo</option><option value="04">Abril</option>' +
-            '<option value="05">Mayo</option><option value="06">Junio</option>' +
-            '<option value="07">Julio</option><option value="08">Agosto</option>' +
-            '<option value="09">Septiembre</option><option value="10">Octubre</option>' +
-            '<option value="11">Noviembre</option><option value="12">Diciembre</option>';
-            
-        actualizarDias();
+
+        function actualizarMeses() {
+            let anio = nacAnio ? parseInt(nacAnio.value) : 2026;
+            let d = new Date();
+            let currentMonth = d.getMonth() + 1;
+            let currentYear = d.getFullYear();
+
+            let maxMes = (anio === currentYear) ? currentMonth : 12;
+            let currentVal = nacMes.value;
+
+            let monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            let optionsHTML = '<option value="">-- Mes --</option>';
+
+            for (let i = 0; i < maxMes; i++) {
+                let v = (i + 1) < 10 ? '0' + (i + 1) : '' + (i + 1);
+                optionsHTML += `<option value="${v}">${monthNames[i]}</option>`;
+            }
+            nacMes.innerHTML = optionsHTML;
+            if (currentVal && parseInt(currentVal) <= maxMes) {
+                nacMes.value = currentVal;
+            } else {
+                nacMes.value = '';
+            }
+            actualizarDias();
+        }
+
+        if (nacAnio) {
+            nacAnio.addEventListener('input', actualizarMeses);
+            nacAnio.addEventListener('blur', actualizarMeses);
+        }
+        actualizarMeses();
     }
 }
 
@@ -105,7 +131,7 @@ function initUbicaciones() {
         { pais: 'paisNacionalidad', depto: null, muni: null }, // solo pais
         { pais: 'paisNac', depto: 'deptoNac', muni: 'municipioNac' },
         { pais: 'paisCorr', depto: 'deptoCorr', muni: 'municipioCorr' },
-        { pais: 'paisExp_1', depto: 'deptoExp_1', muni: 'municipioExp_1' } 
+        { pais: 'paisExp_1', depto: 'deptoExp_1', muni: 'municipioExp_1' }
     ];
 
     grupos.forEach(grupo => {
@@ -133,13 +159,13 @@ function actualizarUbicacion(paisEl, deptoEl, muniEl) {
             deptoEl.innerHTML += `<option value="${key}">${nombre}</option>`;
         });
         deptoEl.disabled = false;
-        
+
         muniEl.innerHTML = '<option value="">-- Seleccionar --</option>';
         muniEl.disabled = false;
     } else {
         deptoEl.innerHTML = '<option value="otro">Otro</option>';
         deptoEl.disabled = true;
-        
+
         muniEl.innerHTML = '<option value="otro">Otro</option>';
         muniEl.disabled = true;
     }
@@ -159,23 +185,23 @@ function initExperienciaLogica() {
     // 5. Cálculo y validaciones de tiempo de experiencia
     const totalAnios = document.querySelector('input[name="totalAnios"]');
     const totalMeses = document.querySelector('input[name="totalMeses"]');
-    
+
     if (totalAnios && totalMeses) {
         // Estamos en tiempo-experiencia.html
         const ocupAnios = document.getElementById('aniosOcup_1');
         const ocupMeses = document.getElementById('mesesOcup_1');
-        
+
         function calcularTotal() {
             let anios = parseInt(ocupAnios.value) || 0;
             let meses = parseInt(ocupMeses.value) || 0;
-            
+
             if (meses < 0) { meses = 0; ocupMeses.value = 0; }
-            while(meses >= 12) {
+            while (meses >= 12) {
                 anios++;
                 meses -= 12;
             }
             ocupMeses.value = meses;
-            
+
             if (anios < 0) { anios = 0; ocupAnios.value = 0; }
 
             totalAnios.value = anios;
@@ -187,9 +213,9 @@ function initExperienciaLogica() {
             ocupMeses.addEventListener('input', calcularTotal);
             calcularTotal();
         }
-        
+
         // Bloquear campos de sumatoria final porque son automáticos
-        totalAnios.readOnly = true; 
+        totalAnios.readOnly = true;
         totalMeses.readOnly = true;
         totalAnios.style.backgroundColor = '#E9ECEF';
         totalMeses.style.backgroundColor = '#E9ECEF';
@@ -201,7 +227,7 @@ function initExperienciaLogica() {
     const mesIng_1 = document.getElementById('mesIng_1');
     const mesRet_1 = document.getElementById('mesRet_1');
 
-    if(anioIng_1 && anioRet_1 && mesIng_1 && mesRet_1) {
+    if (anioIng_1 && anioRet_1 && mesIng_1 && mesRet_1) {
         function validarFechasExp() {
             let aIng = parseInt(anioIng_1.value) || 0;
             let aRet = parseInt(anioRet_1.value);
