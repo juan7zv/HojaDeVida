@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formación Académica - Hoja de Vida</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <header>
         <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
@@ -29,7 +31,12 @@
                 <h2><span class="numero-seccion">2</span> Formación Académica</h2>
 
                 <h3>Educación Básica y Media</h3>
-                <p style="font-size:0.82rem;color:#6C757D;margin-bottom:12px;">Marque con una X el último grado aprobado (Grados 1o a 6o de bachillerato equivalen a grados 6o a 11o)</p>
+                <p style="font-size:0.82rem;color:#6C757D;margin-bottom:12px;">Marque con una X el último grado aprobado
+<<<<<<< HEAD
+                    (Grados 1o a 5o primaria, Grados 6o a 11o bachillerato)</p>
+=======
+                    (Grados 1o a 6o de bachillerato equivalen a grados 6o a 11o)</p>
+>>>>>>> 9bd10ff1f4dc640737eefcec822d57c52a9f11f3
 
                 <div class="campo" id="contenedorGrados">
                     <label class="requerido">Último Grado Aprobado</label>
@@ -56,14 +63,20 @@
                     <div class="campo">
                         <label for="fechaGradoMes" class="requerido">Fecha de Grado - Mes</label>
                         <select id="fechaGradoMes" required>
+<<<<<<< HEAD
+                            <option value=""> Mes </option>
+=======
                             <option value="">-- Mes --</option>
-                            <option value="01">Enero</option><option value="02">Febrero</option>
-                            <option value="11">Noviembre</option><option value="12">Diciembre</option>
+>>>>>>> 9bd10ff1f4dc640737eefcec822d57c52a9f11f3
+                            <option value="01">Enero</option>
+                            <option value="02">Febrero</option>
+                            <option value="11">Noviembre</option>
+                            <option value="12">Diciembre</option>
                         </select>
                     </div>
                     <div class="campo">
                         <label for="fechaGradoAnio" class="requerido">Año</label>
-                        <input type="number" id="fechaGradoAnio" min="1970" max="2030" placeholder="Ej: 2010" required>
+                        <input type="number" id="fechaGradoAnio" min="0" max="2026" placeholder="Ej: 2010" required>
                     </div>
                 </div>
             </section>
@@ -72,17 +85,24 @@
             <section>
                 <h3>Educación Superior (Pregrado y Postgrado)</h3>
                 <p style="font-size:0.82rem;color:#6C757D;margin-bottom:12px;">
-                    TC (Técnica), TL (Tecnológica), TE (Tec. Especializada), UN (Universitaria), ES (Especialización), MG (Maestría), DOC (Doctorado)
+                    TC (Técnica), TL (Tecnológica), TE (Tec. Especializada), UN (Universitaria), ES (Especialización),
+                    MG (Maestría), DOC (Doctorado)
                 </p>
 
                 <div id="listaEstudios">
                     <div class="registro-dinamico" id="estudio_1">
-                        <div class="registro-header"><h4>Estudio Superior #1</h4></div>
+                        <div class="registro-header">
+                            <h4>Estudio Superior #1</h4>
+                        </div>
                         <div class="fila-campos">
                             <div class="campo">
                                 <label class="requerido">Modalidad Académica</label>
                                 <select id="modalidad_1" required>
+<<<<<<< HEAD
+                                    <option value=""> Seleccionar </option>
+=======
                                     <option value="">-- Seleccionar --</option>
+>>>>>>> 9bd10ff1f4dc640737eefcec822d57c52a9f11f3
                                     <option value="TC">Técnica</option>
                                     <option value="TL">Tecnológica</option>
                                     <option value="UN">Universitaria</option>
@@ -110,14 +130,18 @@
                             <div class="campo">
                                 <label>Mes Terminación</label>
                                 <select id="mesTerminacion_1">
+<<<<<<< HEAD
+                                    <option value=""> Mes </option>
+=======
                                     <option value="">-- Mes --</option>
+>>>>>>> 9bd10ff1f4dc640737eefcec822d57c52a9f11f3
                                     <option value="01">Enero</option>
                                     <option value="12">Diciembre</option>
                                 </select>
                             </div>
                             <div class="campo">
                                 <label>Año Terminación</label>
-                                <input type="number" id="anioTerminacion_1" min="1970" max="2030">
+                                <input type="number" id="anioTerminacion_1" min="0" max="2026">
                             </div>
                             <div class="campo">
                                 <label>No. Tarjeta Profesional</label>
@@ -137,7 +161,9 @@
 
                 <div id="listaIdiomas">
                     <div class="registro-dinamico" id="idioma_1">
-                        <div class="registro-header"><h4>Idioma #1</h4></div>
+                        <div class="registro-header">
+                            <h4>Idioma #1</h4>
+                        </div>
                         <div class="fila-campos">
                             <div class="campo">
                                 <label class="requerido">Idioma</label>
@@ -177,7 +203,8 @@
             <!-- Botones -->
             <section>
                 <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
-                    <a href="datos-personales.html" class="btn btn-secundario" style="text-decoration:none; display:inline-block; text-align:center;">← Anterior</a>
+                    <a href="datos-personales.html" class="btn btn-secundario"
+                        style="text-decoration:none; display:inline-block; text-align:center;">← Anterior</a>
                     <div>
                         <button type="submit" class="btn btn-primario">Siguiente ➜</button>
                     </div>
@@ -189,5 +216,7 @@
     <footer>
         <p>Formato Único Hoja de Vida &copy; 2026 · Modo Estático 2 de 5</p>
     </footer>
+    <script src="js/main.js"></script>
 </body>
+
 </html>

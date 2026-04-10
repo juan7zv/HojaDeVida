@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencia Laboral - Hoja de Vida</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <header>
         <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
@@ -27,12 +29,15 @@
             <section>
                 <h2><span class="numero-seccion">3</span> Experiencia Laboral</h2>
                 <p style="font-size:0.82rem;color:#6C757D;margin-bottom:16px;">
-                    Relacione su experiencia laboral o de prestación de servicios en estricto orden cronológico comenzando por el actual.
+                    Relacione su experiencia laboral o de prestación de servicios en estricto orden cronológico
+                    comenzando por el actual.
                 </p>
 
                 <div id="listaExperiencias">
                     <div class="registro-dinamico" id="experiencia_1">
-                        <div class="registro-header"><h4>Experiencia Laboral Principal</h4></div>
+                        <div class="registro-header">
+                            <h4>Experiencia Laboral Principal</h4>
+                        </div>
                         <div class="fila-campos">
                             <div class="campo">
                                 <label class="requerido">Empresa o Entidad</label>
@@ -41,7 +46,8 @@
                             <div class="campo">
                                 <label class="requerido">Tipo</label>
                                 <div class="grupo-radio">
-                                    <label><input type="radio" name="tipoEmpresa_1" value="publica" required> Pública</label>
+                                    <label><input type="radio" name="tipoEmpresa_1" value="publica" required>
+                                        Pública</label>
                                     <label><input type="radio" name="tipoEmpresa_1" value="privada"> Privada</label>
                                 </div>
                             </div>
@@ -89,7 +95,7 @@
                             </div>
                             <div class="campo">
                                 <label>Año</label>
-                                <input type="number" id="anioIng_1" min="1970" max="2030">
+                                <input type="number" id="anioIng_1" min="0" max="2026">
                             </div>
                             <div class="campo">
                                 <label>Retiro - Mes</label>
@@ -100,7 +106,7 @@
                             </div>
                             <div class="campo">
                                 <label>Año (vacío=actual)</label>
-                                <input type="number" id="anioRet_1" min="1970" max="2030">
+                                <input type="number" id="anioRet_1" min="0" max="2026">
                             </div>
                         </div>
                         <div class="fila-campos">
@@ -125,7 +131,8 @@
 
             <section>
                 <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
-                    <a href="formacion-academica.html" class="btn btn-secundario" style="text-decoration:none; display:inline-block; text-align:center;">← Anterior</a>
+                    <a href="formacion-academica.html" class="btn btn-secundario"
+                        style="text-decoration:none; display:inline-block; text-align:center;">← Anterior</a>
                     <div>
                         <button type="submit" class="btn btn-primario">Siguiente ➜</button>
                     </div>
@@ -137,5 +144,7 @@
     <footer>
         <p>Formato Único Hoja de Vida &copy; 2026 · Modo Estático 3 de 5</p>
     </footer>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
