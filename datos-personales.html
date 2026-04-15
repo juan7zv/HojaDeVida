@@ -2,19 +2,24 @@
 <html lang="es">
 
 <head>
+    <!-- Configuración básica y metaetiquetas para SEO y adaptabilidad móvil -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos Personales - Hoja de Vida</title>
+    <!-- Enlace a la hoja de estilos general -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
 
+    <!-- Encabezado oficial del Formato Único -->
     <header>
         <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
-        <p>Persona Natural</p>
+        <p>Persona Natural · Información Personal básica según Ley 190 de 1995</p>
     </header>
 
+    <!-- Barra de navegación por pasos. 
+         Nota: El acceso a pasos futuros está bloqueado por JS si no se completan los campos requeridos. -->
     <nav>
         <span class="paso-activo">1. Datos Personales</span>
         <a href="formacion-academica.html">2. Formación Académica</a>
@@ -24,13 +29,15 @@
     </nav>
 
     <main>
+        <!-- El formulario utiliza el método GET para simular el paso de datos en modo estático -->
         <form action="formacion-academica.html" method="get">
+            <!-- Contenedor para mensajes de alerta globales manejados por main.js -->
             <div id="alertaGeneral" class="alerta"></div>
 
             <section>
                 <h2><span class="numero-seccion">1</span> Datos Personales</h2>
 
-                <!-- Nombres y apellidos -->
+                <!-- Bloque 1: Identificación básica del aspirante -->
                 <div class="fila-campos">
                     <div class="campo">
                         <label for="primerApellido" class="requerido">Primer Apellido</label>
@@ -44,10 +51,9 @@
                         <label for="nombres" class="requerido">Nombres</label>
                         <input type="text" id="nombres" placeholder="Ej: Carlos Andrés" required>
                     </div>
-                    </div>
                 </div>
 
-                <!-- Documento de identificación -->
+                <!-- Bloque 2: Documento de identificación -->
                 <h3>Documento de Identificación</h3>
                 <div class="fila-campos">
                     <div class="campo" id="contenedorTipoDoc">
@@ -64,6 +70,7 @@
                     </div>
                 </div>
 
+                <!-- Bloque 3: Datos demográficos y de nacionalidad -->
                 <div class="fila-campos">
                     <div class="campo" id="contenedorSexo">
                         <label class="requerido">Sexo</label>
@@ -80,17 +87,34 @@
                         </div>
                     </div>
                     <div class="campo">
-                        <label for="paisNacionalidad">País</label>
+                        <label for="paisNacionalidad">País (Si es extranjero)</label>
                         <select id="paisNacionalidad">
-                            <option value="colombia">Colombia</option>
-                            <option value="venezuela">Venezuela</option>
-                            <option value="ecuador">Ecuador</option>
-                            <option value="peru">Perú</option>
+                            <option value="">-- Seleccionar --</option>
+                            <optgroup label="América Latina">
+                                <option value="argentina">Argentina</option>
+                                <option value="bolivia">Bolivia</option>
+                                <option value="brasil">Brasil</option>
+                                <option value="chile">Chile</option>
+                                <option value="ecuador">Ecuador</option>
+                                <option value="mexico">México</option>
+                                <option value="paraguay">Paraguay</option>
+                                <option value="peru">Perú</option>
+                                <option value="uruguay">Uruguay</option>
+                                <option value="venezuela">Venezuela</option>
+                            </optgroup>
+                            <optgroup label="Otros">
+                                <option value="usa">Estados Unidos</option>
+                                <option value="españa">España</option>
+                                <option value="francia">Francia</option>
+                                <option value="italia">Italia</option>
+                                <option value="alemania">Alemania</option>
+                                <option value="otro">Otro</option>
+                            </optgroup>
                         </select>
                     </div>
                 </div>
 
-                <!-- Libreta Militar -->
+                <!-- Bloque 4: Libreta Militar (Se oculta dinámicamente si el sexo es Femenino) -->
                 <h3>Libreta Militar</h3>
                 <div class="fila-campos">
                     <div class="campo">
@@ -107,6 +131,7 @@
                     <div class="campo">
                         <label for="distritoMilitar">Distrito Militar (D.M)</label>
                         <select id="distritoMilitar">
+                            <option value="" disabled selected>Seleccionar DM</option>
                             <option value="1">Distrito Militar 1</option>
                             <option value="2">Distrito Militar 2</option>
                             <option value="3">Distrito Militar 3</option>
@@ -114,35 +139,41 @@
                     </div>
                 </div>
 
-                <!-- Fecha y lugar de nacimiento -->
+                <!-- Bloque 5: Fecha y lugar de nacimiento con validación de edad (Mínimo 18 años) -->
                 <h3>Fecha y Lugar de Nacimiento</h3>
                 <div class="fila-campos">
                     <div class="campo">
                         <label for="nacDia" class="requerido">Día</label>
                         <select id="nacDia" required>
                             <option value=""> Día </option>
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="15">15</option>
-                            <option value="28">28</option>
+                            <!-- Los días se cargan dinámicamente via JS -->
                         </select>
                     </div>
                     <div class="campo">
                         <label for="nacMes" class="requerido">Mes</label>
                         <select id="nacMes" required>
-                            <option value=""> Mes </option>
+                            <option value="" disabled selected> Mes </option>
                             <option value="01">Enero</option>
                             <option value="02">Febrero</option>
+                            <option value="03">Marzo</option>
+                            <option value="04">Abril</option>
                             <option value="05">Mayo</option>
+                            <option value="06">Junio</option>
+                            <option value="07">Julio</option>
+                            <option value="08">Agosto</option>
+                            <option value="09">Septiembre</option>
+                            <option value="10">Octubre</option>
+                            <option value="11">Noviembre</option>
                             <option value="12">Diciembre</option>
                         </select>
                     </div>
                     <div class="campo">
                         <label for="nacAnio" class="requerido">Año</label>
-                        <input type="number" id="nacAnio" min="0" max="2026" placeholder="Ej: 1990" required>
+                        <input type="number" id="nacAnio" min="1941" max="2008" placeholder="Ej: 1990" required>
                     </div>
                 </div>
 
+                <!-- Lugar de nacimiento con conexión a base de datos geográfica (JS) -->
                 <div class="fila-campos">
                     <div class="campo">
                         <label for="paisNac" class="requerido">País de Nacimiento</label>
@@ -154,30 +185,22 @@
                     <div class="campo">
                         <label for="deptoNac" class="requerido" id="labelDeptoNac">Departamento</label>
                         <select id="deptoNac" required>
-                            <option value=""> Seleccionar </option>
-                            <option value="bogota">Bogotá D.C.</option>
-                            <option value="antioquia">Antioquia</option>
-                            <option value="valle">Valle del Cauca</option>
-                            <option value="extranjero">N/A - Extranjero</option>
+                            <!-- Cargado dinámicamente -->
                         </select>
                     </div>
                     <div class="campo">
                         <label for="municipioNac" class="requerido" id="labelMunNac">Municipio</label>
                         <select id="municipioNac" required>
-                            <option value=""> Seleccionar </option>
-                            <option value="bogota">Bogotá</option>
-                            <option value="medellin">Medellín</option>
-                            <option value="cali">Cali</option>
-                            <option value="extranjero">N/A - Extranjero</option>
+                            <!-- Cargado dinámicamente -->
                         </select>
                     </div>
                 </div>
 
-                <!-- Dirección de correspondencia -->
+                <!-- Bloque 6: Ubicación de contacto y correspondencia -->
                 <h3>Dirección de Correspondencia</h3>
                 <div class="fila-campos">
                     <div class="campo" style="flex:2">
-                        <label for="direccionCorr" class="requerido">Dirección</label>
+                        <label for="direccionCorr" class="requerido">Dirección Completa</label>
                         <input type="text" id="direccionCorr" placeholder="Ej: Calle 45 #12-34" required>
                     </div>
                 </div>
@@ -192,23 +215,21 @@
                     <div class="campo">
                         <label for="deptoCorr" class="requerido" id="labelDeptoCorr">Departamento</label>
                         <select id="deptoCorr" required>
-                            <option value=""> Seleccionar </option>
-                            <option value="bogota">Bogotá D.C.</option>
-                            <option value="antioquia">Antioquia</option>
+                            <!-- Cargado dinámicamente -->
                         </select>
                     </div>
                     <div class="campo">
                         <label for="municipioCorr" class="requerido" id="labelMunCorr">Municipio</label>
                         <select id="municipioCorr" required>
-                            <option value=""> Seleccionar </option>
-                            <option value="bogota">Bogotá</option>
-                            <option value="medellin">Medellín</option>
+                            <!-- Cargado dinámicamente -->
                         </select>
                     </div>
                 </div>
+
+                <!-- Bloque 7: Información de contacto directo -->
                 <div class="fila-campos">
                     <div class="campo">
-                        <label for="telefono" class="requerido">Teléfono</label>
+                        <label for="telefono" class="requerido">Teléfono / Celular</label>
                         <input type="tel" id="telefono" placeholder="Ej: 3101234567" required>
                     </div>
                     <div class="campo">
@@ -217,21 +238,24 @@
                     </div>
                 </div>
 
-                <!-- Botones -->
+                <!-- Botones de acción del formulario -->
                 <div class="botones-formulario">
                     <a href="index.html" class="btn btn-secundario"
-                        style="text-decoration:none; display:inline-block; text-align:center;">← Volver</a>
+                        style="text-decoration:none; display:inline-block; text-align:center;">← Volver al Inicio</a>
                     <div>
-                        <button type="submit" class="btn btn-primario">Siguiente ➜</button>
+                        <button type="submit" class="btn btn-primario">Siguiente Sección ➜</button>
                     </div>
                 </div>
             </section>
         </form>
     </main>
 
+    <!-- Pie de página con información de copyright y progreso del formulario -->
     <footer>
-        <p>Formato Único Hoja de Vida &copy; 2026 · Modo Estático 1 de 5</p>
+        <p>Formato Único Hoja de Vida &copy; 2026 · Desarrollo Profesional · Paso 1 de 5</p>
     </footer>
+
+    <!-- Scripts de lógica y validaciones -->
     <script src="js/main.js"></script>
 </body>
 

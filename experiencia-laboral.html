@@ -9,11 +9,13 @@
 </head>
 
 <body>
+    <!-- Encabezado -->
     <header>
         <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
-        <p>Persona Natural</p>
+        <p>Persona Natural · Trayectoria Profesional</p>
     </header>
 
+    <!-- Navegación -->
     <nav>
         <a href="datos-personales.html" class="paso-completado">1. Datos Personales</a>
         <a href="formacion-academica.html" class="paso-completado">2. Formación Académica</a>
@@ -26,32 +28,36 @@
         <form action="tiempo-experiencia.html" method="get">
             <div id="alertaGeneral" class="alerta"></div>
 
+            <!-- SECCIÓN 3: EXPERIENCIA LABORAL -->
             <section>
                 <h2><span class="numero-seccion">3</span> Experiencia Laboral</h2>
                 <p style="font-size:0.82rem;color:#6C757D;margin-bottom:16px;">
                     Relacione su experiencia laboral o de prestación de servicios en estricto orden cronológico
-                    comenzando por el actual.
+                    comenzando por el actual. (Los campos con * son obligatorios legalmente).
                 </p>
 
                 <div id="listaExperiencias">
                     <div class="registro-dinamico" id="experiencia_1">
                         <div class="registro-header">
-                            <h4>Experiencia Laboral Principal</h4>
+                            <h4>Experiencia Laboral Principal / Actual</h4>
                         </div>
+                        
+                        <!-- Empresa y Tipo -->
                         <div class="fila-campos">
                             <div class="campo">
                                 <label class="requerido">Empresa o Entidad</label>
-                                <input type="text" id="empresa_1" required>
+                                <input type="text" id="empresa_1" placeholder="Nombre completo" required>
                             </div>
                             <div class="campo">
-                                <label class="requerido">Tipo</label>
+                                <label class="requerido">Naturaleza de la Entidad</label>
                                 <div class="grupo-radio">
-                                    <label><input type="radio" name="tipoEmpresa_1" value="publica" required>
-                                        Pública</label>
+                                    <label><input type="radio" name="tipoEmpresa_1" value="publica" required> Pública</label>
                                     <label><input type="radio" name="tipoEmpresa_1" value="privada"> Privada</label>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Ubicación de la experiencia -->
                         <div class="fila-campos">
                             <div class="campo">
                                 <label>País</label>
@@ -63,78 +69,107 @@
                             <div class="campo">
                                 <label>Departamento</label>
                                 <select id="deptoExp_1">
-                                    <option value="bogota">Bogotá D.C.</option>
-                                    <option value="antioquia">Antioquia</option>
+                                    <!-- Cargado por JS -->
                                 </select>
                             </div>
                             <div class="campo">
                                 <label>Municipio</label>
                                 <select id="municipioExp_1">
-                                    <option value="bogota">Bogotá</option>
-                                    <option value="medellin">Medellin</option>
+                                    <!-- Cargado por JS -->
                                 </select>
                             </div>
                         </div>
+
+                        <!-- Contacto de la entidad -->
                         <div class="fila-campos">
                             <div class="campo">
-                                <label>Correo Entidad</label>
-                                <input type="email" id="correoEnt_1">
+                                <label>Correo Electrónico Entidad</label>
+                                <input type="email" id="correoEnt_1" placeholder="entidad@ejemplo.com">
                             </div>
                             <div class="campo">
                                 <label>Teléfonos</label>
-                                <input type="tel" id="telEnt_1">
+                                <input type="tel" id="telEnt_1" placeholder="Ej: 601 1234567">
                             </div>
                         </div>
+
+                        <!-- Fechas de vinculación -->
                         <div class="fila-campos">
                             <div class="campo">
                                 <label>Ingreso - Mes</label>
                                 <select id="mesIng_1">
+                                    <option value="" disabled selected> Mes </option>
                                     <option value="01">Enero</option>
+                                    <option value="02">Febrero</option>
+                                    <option value="03">Marzo</option>
+                                    <option value="04">Abril</option>
+                                    <option value="05">Mayo</option>
+                                    <option value="06">Junio</option>
+                                    <option value="07">Julio</option>
+                                    <option value="08">Agosto</option>
+                                    <option value="09">Septiembre</option>
+                                    <option value="10">Octubre</option>
+                                    <option value="11">Noviembre</option>
                                     <option value="12">Diciembre</option>
                                 </select>
                             </div>
                             <div class="campo">
-                                <label>Año</label>
-                                <input type="number" id="anioIng_1" min="0" max="2026">
+                                <label>Año de Ingreso</label>
+                                <input type="number" id="anioIng_1" min="1941" max="2026" placeholder="AñO">
                             </div>
                             <div class="campo">
                                 <label>Retiro - Mes</label>
                                 <select id="mesRet_1">
+                                    <option value="" disabled selected> Mes </option>
                                     <option value="01">Enero</option>
+                                    <option value="02">Febrero</option>
+                                    <option value="03">Marzo</option>
+                                    <option value="04">Abril</option>
+                                    <option value="05">Mayo</option>
+                                    <option value="06">Junio</option>
+                                    <option value="07">Julio</option>
+                                    <option value="08">Agosto</option>
+                                    <option value="09">Septiembre</option>
+                                    <option value="10">Octubre</option>
+                                    <option value="11">Noviembre</option>
                                     <option value="12">Diciembre</option>
                                 </select>
                             </div>
                             <div class="campo">
-                                <label>Año (vacío=actual)</label>
-                                <input type="number" id="anioRet_1" min="0" max="2026">
+                                <label>Año Retiro (vacío = Actual)</label>
+                                <input type="number" id="anioRet_1" min="1941" max="2026" placeholder="AñO">
                             </div>
                         </div>
+
+                        <!-- Cargo y Dependencia -->
                         <div class="fila-campos">
                             <div class="campo">
-                                <label class="requerido">Cargo o Contrato</label>
-                                <input type="text" id="cargo_1" required>
+                                <label class="requerido">Cargo o Contrato Actual</label>
+                                <input type="text" id="cargo_1" placeholder="Ej: Analista de Sistemas" required>
                             </div>
                             <div class="campo">
                                 <label>Dependencia</label>
-                                <input type="text" id="dependencia_1">
+                                <input type="text" id="dependencia_1" placeholder="Ej: Área de IT">
                             </div>
                         </div>
+
+                        <!-- Dirección física -->
                         <div class="fila-campos">
                             <div class="campo">
-                                <label>Dirección</label>
-                                <input type="text" id="direccionExp_1">
+                                <label>Dirección de la Entidad</label>
+                                <input type="text" id="direccionExp_1" placeholder="Ej: Av Siempre Viva 123">
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Botones de navegación -->
             <section>
                 <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
                     <a href="formacion-academica.html" class="btn btn-secundario"
-                        style="text-decoration:none; display:inline-block; text-align:center;">← Anterior</a>
+                        style="text-decoration:none; display:inline-block; text-align:center;">← Sección Anterior</a>
                     <div>
-                        <button type="submit" class="btn btn-primario">Siguiente ➜</button>
+                        <button type="submit" class="btn btn-primario">Siguiente Sección ➜</button>
                     </div>
                 </div>
             </section>
@@ -142,8 +177,10 @@
     </main>
 
     <footer>
-        <p>Formato Único Hoja de Vida &copy; 2026 · Modo Estático 3 de 5</p>
+        <p>Formato Único Hoja de Vida &copy; 2026 · Paso 3 de 5</p>
     </footer>
+
+    <!-- Lógica de control de fechas y navegación -->
     <script src="js/main.js"></script>
 </body>
 
