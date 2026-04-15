@@ -86,7 +86,7 @@ function initFechas() {
             }
 
             let currentVal = nacDia.value;
-            let optionsHTML = '<option value="">-- Día --</option>';
+            let optionsHTML = '<option value=""> Día </option>';
             for (let i = 1; i <= diasTotales; i++) {
                 let v = i < 10 ? '0' + i : '' + i;
                 optionsHTML += `<option value="${v}">${v}</option>`;
@@ -109,7 +109,7 @@ function initFechas() {
             let currentVal = nacMes.value;
 
             let monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-            let optionsHTML = '<option value="">-- Mes --</option>';
+            let optionsHTML = '<option value=""> Mes </option>';
 
             for (let i = 0; i < maxMes; i++) {
                 let v = (i + 1) < 10 ? '0' + (i + 1) : '' + (i + 1);
@@ -160,14 +160,14 @@ function initUbicaciones() {
 
 function actualizarUbicacion(paisEl, deptoEl, muniEl) {
     if (paisEl.value.toLowerCase() === 'colombia') {
-        deptoEl.innerHTML = '<option value="">-- Seleccionar --</option>';
+        deptoEl.innerHTML = '<option value=""> Seleccionar </option>';
         Object.keys(deptoMuni).forEach(key => {
             let nombre = key.charAt(0).toUpperCase() + key.slice(1);
             deptoEl.innerHTML += `<option value="${key}">${nombre}</option>`;
         });
         deptoEl.disabled = false;
 
-        muniEl.innerHTML = '<option value="">-- Seleccionar --</option>';
+        muniEl.innerHTML = '<option value=""> Seleccionar </option>';
         muniEl.disabled = false;
     } else {
         deptoEl.innerHTML = '<option value="otro">Otro</option>';
@@ -180,7 +180,7 @@ function actualizarUbicacion(paisEl, deptoEl, muniEl) {
 
 function actualizarMunicipios(deptoEl, muniEl) {
     const depto = deptoEl.value;
-    muniEl.innerHTML = '<option value="">-- Seleccionar --</option>';
+    muniEl.innerHTML = '<option value=""> Seleccionar </option>';
     if (depto && deptoMuni[depto]) {
         deptoMuni[depto].forEach(m => {
             muniEl.innerHTML += `<option value="${m}">${m}</option>`;
