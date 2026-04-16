@@ -9,11 +9,13 @@
 </head>
 
 <body>
+    <!-- Encabezado -->
     <header>
         <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
-        <p>Persona Natural</p>
+        <p>Persona Natural · Certificación de la Información</p>
     </header>
 
+    <!-- Navegación final -->
     <nav>
         <a href="datos-personales.html" class="paso-completado">1. Datos Personales</a>
         <a href="formacion-academica.html" class="paso-completado">2. Formación Académica</a>
@@ -26,19 +28,19 @@
         <form action="estado-hv.html" method="get">
             <div id="alertaGeneral" class="alerta"></div>
 
-            <!-- Firma del servidor público o contratista -->
+            <!-- SECCIÓN 5: DECLARACIÓN JURAMENTADA -->
             <section>
                 <h2><span class="numero-seccion">5</span> Firma del Servidor Público o Contratista</h2>
 
+                <!-- Cuadro de texto legal basado en la Ley 190 de 1995 -->
                 <div
                     style="background-color:#F8F9FA;padding:20px;border-radius:8px;border-left:3px solid var(--primario);margin-bottom:20px;line-height:1.8;font-size:0.88rem;">
-                    <p>MANIFIESTO BAJO LA GRAVEDAD DEL JURAMENTO QUE:</p>
+                    <p><strong>MANIFIESTO BAJO LA GRAVEDAD DEL JURAMENTO QUE:</strong></p>
                     <br>
                     <p>
-                        ME ENCUENTRO DENTRO DE LAS
-                        CAUSALES DE INHABILIDAD E INCOMPATIBILIDAD DEL ORDEN CONSTITUCIONAL O LEGAL, PARA EJERCER CARGOS
-                        EMPLEOS PÚBLICOS O PARA CELEBRAR CONTRATOS DE PRESTACIÓN DE SERVICIOS CON LA ADMINISTRACIÓN
-                        PÚBLICA.
+                        NO ME ENCUENTRO DENTRO DE LAS CAUSALES DE INHABILIDAD E INCOMPATIBILIDAD DEL ORDEN CONSTITUCIONAL O LEGAL, 
+                        PARA EJERCER CARGOS O EMPLEOS PÚBLICOS O PARA CELEBRAR CONTRATOS DE PRESTACIÓN DE SERVICIOS CON LA 
+                        ADMINISTRACIÓN PÚBLICA.
                     </p>
                     <br>
                     <p>
@@ -47,45 +49,48 @@
                     </p>
                 </div>
 
+                <!-- Campo de aceptación obligatoria -->
                 <div class="campo" id="contenedorJuramento">
                     <label class="requerido">¿Acepta la declaración jurada anterior?</label>
                     <div class="grupo-radio">
-                        <label><input type="radio" name="aceptaJuramento" value="si" required> Sí, acepto</label>
+                        <label><input type="radio" name="aceptaJuramento" value="si" data-required="true"> Sí, acepto</label>
                         <label><input type="radio" name="aceptaJuramento" value="no"> No acepto</label>
                     </div>
                 </div>
             </section>
 
-            <!-- Observaciones -->
+            <!-- SECCIÓN 6: OBSERVACIONES (Uso administrativo) -->
             <section>
                 <h2><span class="numero-seccion">6</span> Observaciones</h2>
                 <p style="font-size:0.82rem;color:#6C757D;margin-bottom:12px;">
-                    Certifico que la información aquí suministrada ha sido constatada frente a los documentos que han
-                    sido presentados como soporte.
+                    Espacio opcional para aclaraciones adicionales sobre la información suministrada.
                 </p>
 
                 <div class="campo">
-                    <label for="observaciones">Observaciones del Jefe de Recursos Humanos y/o Contratos</label>
+                    <label for="observaciones">Observaciones Generales</label>
                     <textarea id="observaciones" rows="4"
-                        placeholder="Escriba aquí sus observaciones (opcional)"></textarea>
+                        placeholder="Escriba aquí sus observaciones si lo considera necesario"></textarea>
                 </div>
             </section>
 
-            <!-- Botones finales -->
+            <!-- Botones finales de envío -->
             <section>
                 <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
                     <a href="tiempo-experiencia.html" class="btn btn-secundario"
-                        style="text-decoration:none; display:inline-block; text-align:center;">← Anterior</a>
-                    <button type="submit" class="btn btn-primario" style="font-size:1rem;padding:12px 30px;">✓ Enviar
-                        Hoja de Vida</button>
+                        style="text-decoration:none; display:inline-block; text-align:center;">← Sección Anterior</a>
+                    <button type="submit" class="btn btn-primario" style="font-size:1rem;padding:12px 30px;">
+                        ✓ Finalizar y Enviar
+                    </button>
                 </div>
             </section>
         </form>
     </main>
 
     <footer>
-        <p>Formato Único Hoja de Vida &copy; 2026 · Modo Estático 5 de 5</p>
+        <p>Formato Único Hoja de Vida &copy; 2026 · Paso 5 de 5</p>
     </footer>
+
+    <!-- Lógica de validación final -->
     <script src="js/main.js"></script>
 </body>
 

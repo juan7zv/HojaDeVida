@@ -9,11 +9,13 @@
 </head>
 
 <body>
+    <!-- Encabezado oficial -->
     <header>
         <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
-        <p>Persona Natural</p>
+        <p>Persona Natural · Educación e Idiomas</p>
     </header>
 
+    <!-- Navegación de progreso -->
     <nav>
         <a href="datos-personales.html" class="paso-completado">1. Datos Personales</a>
         <span class="paso-activo">2. Formación Académica</span>
@@ -26,18 +28,20 @@
         <form action="experiencia-laboral.html" method="get">
             <div id="alertaGeneral" class="alerta"></div>
 
-            <!-- EDUCACION BASICA Y MEDIA -->
+            <!-- SECCIÓN 2.1: EDUCACIÓN BÁSICA Y MEDIA -->
             <section>
                 <h2><span class="numero-seccion">2</span> Formación Académica</h2>
 
                 <h3>Educación Básica y Media</h3>
-                <p style="font-size:0.82rem;color:#6C757D;margin-bottom:12px;">Marque con una X el último grado aprobado
-                    (Grados 1o a 6o de bachillerato equivalen a grados 6o a 11o)</p>
+                <p style="font-size:0.82rem;color:#6C757D;margin-bottom:12px;">
+                    Marque con una X el último grado aprobado (Debe haber cursado al menos primaria completa).
+                </p>
 
+                <!-- Selección de grado mediante radios con estilo de botones -->
                 <div class="campo" id="contenedorGrados">
                     <label class="requerido">Último Grado Aprobado</label>
                     <div class="grupo-grados">
-                        <label><input type="radio" name="gradoAprobado" value="1" required><span>1</span></label>
+                        <label><input type="radio" name="gradoAprobado" value="1" data-required="true"><span>1</span></label>
                         <label><input type="radio" name="gradoAprobado" value="2"><span>2</span></label>
                         <label><input type="radio" name="gradoAprobado" value="3"><span>3</span></label>
                         <label><input type="radio" name="gradoAprobado" value="4"><span>4</span></label>
@@ -51,110 +55,134 @@
                     </div>
                 </div>
 
+                <!-- Título y fecha de obtención del grado -->
                 <div class="fila-campos" style="margin-top:14px;">
                     <div class="campo">
                         <label for="tituloBasica" class="requerido">Título Obtenido</label>
-                        <input type="text" id="tituloBasica" placeholder="Ej: Bachiller Académico" required>
+                        <input type="text" id="tituloBasica" placeholder="Ej: Bachiller Académico" data-required="true">
                     </div>
                     <div class="campo">
-                        <label for="fechaGradoMes" class="requerido">Fecha de Grado - Mes</label>
-                        <select id="fechaGradoMes" required>
-                            <option value=""> Mes </option>
+                        <label for="fechaGradoMes" class="requerido">Mes de Grado</label>
+                        <select id="fechaGradoMes" data-required="true">
+                            <option value="" disabled selected> Seleccionar </option>
                             <option value="01">Enero</option>
                             <option value="02">Febrero</option>
+                            <option value="03">Marzo</option>
+                            <option value="04">Abril</option>
+                            <option value="05">Mayo</option>
+                            <option value="06">Junio</option>
+                            <option value="07">Julio</option>
+                            <option value="08">Agosto</option>
+                            <option value="09">Septiembre</option>
+                            <option value="10">Octubre</option>
                             <option value="11">Noviembre</option>
                             <option value="12">Diciembre</option>
                         </select>
                     </div>
                     <div class="campo">
-                        <label for="fechaGradoAnio" class="requerido">Año</label>
-                        <input type="number" id="fechaGradoAnio" min="0" max="2026" placeholder="Ej: 2010" required>
+                        <label for="fechaGradoAnio" class="requerido">Año de Grado</label>
+                        <input type="number" id="fechaGradoAnio" min="1941" max="2026" placeholder="Ej: 2010" data-required="true">
                     </div>
                 </div>
             </section>
 
-            <!-- EDUCACION SUPERIOR -->
+            <!-- SECCIÓN 2.2: EDUCACIÓN SUPERIOR -->
             <section>
                 <h3>Educación Superior (Pregrado y Postgrado)</h3>
                 <p style="font-size:0.82rem;color:#6C757D;margin-bottom:12px;">
-                    TC (Técnica), TL (Tecnológica), TE (Tec. Especializada), UN (Universitaria), ES (Especialización),
-                    MG (Maestría), DOC (Doctorado)
+                    Siglas: TC (Técnica), TL (Tecnológica), TE (Tec. Especializada), UN (Universitaria), ES (Especialización),
+                    MG (Maestría), DOC (Doctorado).
                 </p>
 
                 <div id="listaEstudios">
                     <div class="registro-dinamico" id="estudio_1">
                         <div class="registro-header">
-                            <h4>Estudio Superior #1</h4>
+                            <h4>Estudio Superior Principal</h4>
                         </div>
                         <div class="fila-campos">
                             <div class="campo">
                                 <label class="requerido">Modalidad Académica</label>
-                                <select id="modalidad_1" required>
-                                    <option value="">-- Seleccionar --</option>
+                                <select id="modalidad_1" data-required="true">
+                                    <option value="" disabled selected>-- Seleccionar --</option>
                                     <option value="TC">Técnica</option>
                                     <option value="TL">Tecnológica</option>
+                                    <option value="TE">Tecnológica Especializada</option>
                                     <option value="UN">Universitaria</option>
+                                    <option value="ES">Especialización</option>
+                                    <option value="MG">Maestría</option>
+                                    <option value="DOC">Doctorado</option>
                                 </select>
                             </div>
                             <div class="campo">
-                                <label>No. Semestres</label>
-                                <input type="number" id="semestres_1" min="1" max="20">
+                                <label>Semestres Aprobados</label>
+                                <input type="number" id="semestres_1" min="1" max="20" placeholder="Ej: 10">
                             </div>
                         </div>
                         <div class="fila-campos">
                             <div class="campo">
-                                <label>Graduado</label>
+                                <label>¿Graduado?</label>
                                 <div class="grupo-radio">
                                     <label><input type="radio" name="graduado_1" value="si"> Sí</label>
                                     <label><input type="radio" name="graduado_1" value="no"> No</label>
                                 </div>
                             </div>
                             <div class="campo">
-                                <label class="requerido">Nombre de Estudios / Título</label>
-                                <input type="text" id="nombreEstudio_1" required>
+                                <label class="requerido">Nombre del Título Obtenido</label>
+                                <input type="text" id="nombreEstudio_1" placeholder="Ej: Ingeniero de Sistemas" data-required="true">
                             </div>
                         </div>
                         <div class="fila-campos">
                             <div class="campo">
-                                <label>Mes Terminación</label>
+                                <label>Mes de Terminación</label>
                                 <select id="mesTerminacion_1">
-                                    <option value=""> Mes </option>
+                                    <option value="" disabled selected> Mes </option>
                                     <option value="01">Enero</option>
+                                    <option value="02">Febrero</option>
+                                    <option value="03">Marzo</option>
+                                    <option value="04">Abril</option>
+                                    <option value="05">Mayo</option>
+                                    <option value="06">Junio</option>
+                                    <option value="07">Julio</option>
+                                    <option value="08">Agosto</option>
+                                    <option value="09">Septiembre</option>
+                                    <option value="10">Octubre</option>
+                                    <option value="11">Noviembre</option>
                                     <option value="12">Diciembre</option>
                                 </select>
                             </div>
                             <div class="campo">
-                                <label>Año Terminación</label>
-                                <input type="number" id="anioTerminacion_1" min="0" max="2026">
+                                <label>Año de Terminación</label>
+                                <input type="number" id="anioTerminacion_1" min="1941" max="2026" placeholder="AñO">
                             </div>
                             <div class="campo">
                                 <label>No. Tarjeta Profesional</label>
-                                <input type="text" id="tarjeta_1">
+                                <input type="text" id="tarjeta_1" placeholder="Si aplica">
                             </div>
                         </div>
                     </div>
                 </div>
+                <button type="button" onclick="agregarEstudio()" class="btn btn-secundario" id="btnAgregaEstudio" style="margin-top:15px; width:100%; border:1px dashed var(--primario); background:var(--fondo);">+ Agregar Otro Estudio Superior</button>
             </section>
 
-            <!-- IDIOMAS -->
+            <!-- SECCIÓN 2.3: CONOCIMIENTO DE IDIOMAS -->
             <section>
                 <h3>Idiomas</h3>
                 <p style="font-size:0.82rem;color:#6C757D;margin-bottom:12px;">
-                    Especifique idiomas diferentes al español: R (Regular), B (Bien), MB (Muy Bien)
+                    Nivel de dominio: R (Regular), B (Bien), MB (Muy Bien).
                 </p>
 
                 <div id="listaIdiomas">
                     <div class="registro-dinamico" id="idioma_1">
                         <div class="registro-header">
-                            <h4>Idioma #1</h4>
+                            <h4>Idioma Extranjero #1</h4>
                         </div>
                         <div class="fila-campos">
                             <div class="campo">
-                                <label class="requerido">Idioma</label>
+                                <label>Nombre del Idioma</label>
                                 <input type="text" id="nombreIdioma_1" placeholder="Ej: Inglés">
                             </div>
                             <div class="campo">
-                                <label>Lo Habla</label>
+                                <label>Habla</label>
                                 <div class="grupo-radio">
                                     <label><input type="radio" name="habla_1" value="R"> R</label>
                                     <label><input type="radio" name="habla_1" value="B"> B</label>
@@ -164,7 +192,7 @@
                         </div>
                         <div class="fila-campos">
                             <div class="campo">
-                                <label>Lo Lee</label>
+                                <label>Lee</label>
                                 <div class="grupo-radio">
                                     <label><input type="radio" name="lee_1" value="R"> R</label>
                                     <label><input type="radio" name="lee_1" value="B"> B</label>
@@ -172,7 +200,7 @@
                                 </div>
                             </div>
                             <div class="campo">
-                                <label>Lo Escribe</label>
+                                <label>Escribe</label>
                                 <div class="grupo-radio">
                                     <label><input type="radio" name="escribe_1" value="R"> R</label>
                                     <label><input type="radio" name="escribe_1" value="B"> B</label>
@@ -182,15 +210,17 @@
                         </div>
                     </div>
                 </div>
+                <button type="button" onclick="agregarIdioma()" class="btn btn-secundario" id="btnAgregaIdioma" style="margin-top:15px; width:100%; border:1px dashed var(--primario); background:var(--fondo);">+ Agregar Otro Idioma</button>
             </section>
 
-            <!-- Botones -->
+            <!-- Botones de navegación e interacción -->
             <section>
                 <div class="botones-formulario" style="border-top:none;padding-top:0;margin-top:0;">
                     <a href="datos-personales.html" class="btn btn-secundario"
-                        style="text-decoration:none; display:inline-block; text-align:center;">← Anterior</a>
+                        style="text-decoration:none; display:inline-block; text-align:center;">← Sección Anterior</a>
                     <div>
-                        <button type="submit" class="btn btn-primario">Siguiente ➜</button>
+                        <button type="button" onclick="abrirVistaPreviaLocal()" class="btn btn-secundario" style="margin-right:10px;">👁 Vista Previa</button>
+                        <button type="submit" class="btn btn-primario">Siguiente Sección ➜</button>
                     </div>
                 </div>
             </section>
@@ -198,8 +228,10 @@
     </main>
 
     <footer>
-        <p>Formato Único Hoja de Vida &copy; 2026 · Modo Estático 2 de 5</p>
+        <p>Formato Único Hoja de Vida &copy; 2026 · Paso 2 de 5</p>
     </footer>
+
+    <!-- Lógica de validación -->
     <script src="js/main.js"></script>
 </body>
 
