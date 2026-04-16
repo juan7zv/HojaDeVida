@@ -46,12 +46,12 @@
                         <div class="fila-campos">
                             <div class="campo">
                                 <label class="requerido">Empresa o Entidad</label>
-                                <input type="text" id="empresa_1" placeholder="Nombre completo" required>
+                                <input type="text" id="empresa_1" placeholder="Nombre completo" data-required="true">
                             </div>
                             <div class="campo">
                                 <label class="requerido">Naturaleza de la Entidad</label>
                                 <div class="grupo-radio">
-                                    <label><input type="radio" name="tipoEmpresa_1" value="publica" required> Pública</label>
+                                    <label><input type="radio" name="tipoEmpresa_1" value="publica" data-required="true"> Pública</label>
                                     <label><input type="radio" name="tipoEmpresa_1" value="privada"> Privada</label>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                         <div class="fila-campos">
                             <div class="campo">
                                 <label class="requerido">Cargo o Contrato Actual</label>
-                                <input type="text" id="cargo_1" placeholder="Ej: Analista de Sistemas" required>
+                                <input type="text" id="cargo_1" placeholder="Ej: Analista de Sistemas" data-required="true">
                             </div>
                             <div class="campo">
                                 <label>Dependencia</label>
@@ -161,6 +161,7 @@
                         </div>
                     </div>
                 </div>
+                <button type="button" onclick="agregarExperiencia()" class="btn btn-secundario" id="btnAgregaExp" style="margin-top:15px; width:100%; border:1px dashed var(--primario); background:var(--fondo);">+ Agregar Otra Experiencia Laboral</button>
             </section>
 
             <!-- Botones de navegación -->
@@ -169,6 +170,7 @@
                     <a href="formacion-academica.html" class="btn btn-secundario"
                         style="text-decoration:none; display:inline-block; text-align:center;">← Sección Anterior</a>
                     <div>
+                        <button type="button" onclick="abrirVistaPreviaLocal()" class="btn btn-secundario" style="margin-right:10px;">👁 Vista Previa</button>
                         <button type="submit" class="btn btn-primario">Siguiente Sección ➜</button>
                     </div>
                 </div>

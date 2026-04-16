@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Estado - Hoja de Vida</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>FORMATO ÚNICO - HOJA DE VIDA</h1>
+        <p>Consultar Estado de Postulación</p>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <div class="login-card" style="text-align: center;">
+                <h2 style="color: var(--primario);">Consulta de Estado</h2>
+                <p style="margin-bottom: 20px;">Ingrese su número de documento para verificar el estado de su hoja de vida</p>
+
+                <div id="resultadoConsulta" class="alerta" style="display:none; margin-bottom: 15px; padding:15px; border-radius:6px; font-weight:600;"></div>
+
+                <form id="consultaForm">
+                    <div class="campo" style="text-align: left; margin-bottom: 20px;">
+                        <label for="docConsulta" class="requerido">Número de Documento</label>
+                        <input type="text" id="docConsulta" required placeholder="Ej: 1030456789">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <button type="submit" class="btn btn-primario" style="width: 100%; background-color:var(--exito);">Consultar Mi Estado</button>
+                        <a href="index.html" class="btn btn-secundario"
+                            style="text-decoration: none; display: block;">← Volver al Inicio</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Formato Único Hoja de Vida &copy; 2026 - Desarrollo Web</p>
+    </footer>
+
+    <script>
+        document.getElementById('consultaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const doc = document.getElementById('docConsulta').value.trim();
+            const resDiv = document.getElementById('resultadoConsulta');
+            
+            if(!doc) return;
+
+            let hvList = JSON.parse(localStorage.getItem('hvList') || '[]');
+            // Buscar del más reciente al antiguo (reverse) en caso que haya duplicados
+            let hv = [...hvList].reverse().find(h => h.documento === doc);
+
+            resDiv.style.display = 'block';
+
+            if (hv) {
+                let colorInfo = '#f1f3f5';
+                let textCol = '#333';
+                
+                if(hv.estado === 'diligenciada') {
+                    colorInfo = '#e2e3e5';
+                    textCol = '#383d41';
+                } else if(hv.estado === 'aceptada') {
+                    colorInfo = '#d4edda';
+                    textCol = '#155724';
+                } else if(hv.estado === 'rechazada') {
+                    colorInfo = '#f8d7da';
+                    textCol = '#721c24';
+                }
+
+                resDiv.style.backgroundColor = colorInfo;
+                resDiv.style.color = textCol;
+                resDiv.style.border = `1px solid ${textCol}`;
+                
+                resDiv.innerHTML = `
+                    <div style="margin-bottom:8px; font-size:0.85rem; color:#666;">Candidato: <strong>${hv.nombreCompleto}</strong></div>
+                    Estado Actual: <br>
+                    <span style="font-size:1.2rem; text-transform:uppercase;">${hv.estado}</span>
+                `;
+            } else {
+                resDiv.style.backgroundColor = '#fff3cd';
+                resDiv.style.color = '#856404';
+                resDiv.style.border = '1px solid #ffeeba';
+                resDiv.innerHTML = `No se encontró ninguna Hoja de Vida asociada al documento <strong>${doc}</strong>.`;
+            }
+        });
+    </script>
+</body>
+
+</html>

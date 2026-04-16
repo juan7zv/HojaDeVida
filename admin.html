@@ -15,29 +15,22 @@
     </header>
 
     <nav>
-        <a href="index.html">Cerrar Sesión</a>
-        <span class="paso-activo">Administración</span>
+        <a href="index.html" class="btn-logout">Cerrar Sesión</a>
+        <a href="#" id="tab-admin" class="paso-activo" onclick="switchTab('admin')">Administración</a>
+        <a href="#" id="tab-historial" onclick="switchTab('historial')">Historial</a>
     </nav>
 
     <main>
         <div id="alertaGeneral" class="alerta"></div>
 
-        <section>
-            <h2><span class="numero-seccion">⚙</span> Hojas de Vida Registradas</h2>
+        <div id="vista-admin">
+            <section>
+                <h2><span class="numero-seccion">⚙</span> Hojas de Vida Pendientes</h2>
 
-            <!-- Filtros (Visuales únicamente) -->
-            <div class="filtros-admin">
-                <label for="filtroEstado">Filtrar por estado (Simulado):</label>
-                <select id="filtroEstado">
-                    <option value="todas">Todas</option>
-                    <option value="diligenciada">Diligenciada</option>
-                    <option value="aceptada">Aceptada</option>
-                    <option value="rechazada">Rechazada</option>
-                </select>
-            </div>
 
             <!-- Tabla de hojas de vida -->
-            <table>
+            <div style="overflow-x: auto; width: 100%; margin-top: 15px;">
+                <table class="admin-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -49,122 +42,39 @@
                     </tr>
                 </thead>
                 <tbody id="tablaHVBody">
-                    <tr>
-                        <td>1</td>
-                        <td>Carlos Andrés García López</td>
-                        <td>C.C 1030456789</td>
-                        <td>2026-04-08</td>
-                        <td><span class="badge badge-diligenciada">Diligenciada</span></td>
-                        <td><a href="#detalleHV1" class="btn btn-secundario"
-                                style="padding: 4px 8px; font-size: 0.8rem; text-decoration:none;">Ver Detalle</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>María Fernanda Rojas</td>
-                        <td>C.C 987654321</td>
-                        <td>2026-04-05</td>
-                        <td><span class="badge badge-aceptada">Aceptada</span></td>
-                        <td><button class="btn btn-secundario" style="padding: 4px 8px; font-size: 0.8rem;"
-                                disabled>Revisada</button></td>
-                    </tr>
+                    <!-- Registros dinámicos cargados con JS -->
                 </tbody>
             </table>
-
-            <!-- Detalle de HV Desplegable -->
-            <div id="detalleHV1" class="detalle-hv">
-                <div
-                    style="display:flex; justify-content:space-between; border-bottom: 1px solid #ddd; padding-bottom: 15px; margin-bottom: 20px;">
-                    <h3 style="color:var(--primario); margin:0;">Registro de Hoja de Vida #1</h3>
-                    <a href="#" class="btn btn-secundario"
-                        style="padding:4px 10px; font-size:0.8rem; text-decoration:none;">X Cerrar</a>
-                </div>
-
-                <div class="grid-detalle">
-                    <div class="seccion-detalle">
-                        <h4 style="margin-top:0; color:var(--primario-oscuro); margin-bottom:15px;">1. Datos Personales
-                        </h4>
-                        <div class="grupo-dato"><span class="lbl-dato">Nombre Completo</span>
-                            <p class="val-dato">Carlos Andrés García López</p>
-                        </div>
-                        <div class="grupo-dato"><span class="lbl-dato">Documento</span>
-                            <p class="val-dato">Cédula de Ciudadanía - 1030456789</p>
-                        </div>
-                        <div class="grupo-dato"><span class="lbl-dato">Lugar y Fecha de Nac.</span>
-                            <p class="val-dato">Bogotá D.C., Colombia (15 de Mayo de 1990)</p>
-                        </div>
-                        <div class="grupo-dato"><span class="lbl-dato">Dirección de Contacto</span>
-                            <p class="val-dato">Calle 45 # 12-34, Bogotá (Tel: 310-1234567)</p>
-                        </div>
-                        <div class="grupo-dato"><span class="lbl-dato">Correo Electrónico</span>
-                            <p class="val-dato">carlos.garcia89@correo.com</p>
-                        </div>
-                    </div>
-
-                    <div class="seccion-detalle">
-                        <h4 style="margin-top:0; color:var(--primario-oscuro); margin-bottom:15px;">2. Formación
-                            Académica</h4>
-                        <div class="grupo-dato"><span class="lbl-dato">Educación Básica y Media</span>
-                            <p class="val-dato">Bachiller Académico (Graduado 11/2006)</p>
-                        </div>
-                        <div class="grupo-dato"><span class="lbl-dato">Educación Superior</span>
-                            <p class="val-dato">Universitaria - Ingeniería de Sistemas</p>
-                        </div>
-                        <div class="grupo-dato"><span class="lbl-dato">Estado Superior</span>
-                            <p class="val-dato">Graduado (12/2012) - TP: 4567-SYS</p>
-                        </div>
-                        <div class="grupo-dato"><span class="lbl-dato">Idiomas Adicionales</span>
-                            <p class="val-dato">Inglés (Lee: MB, Escribe: B, Habla: B)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="seccion-detalle" style="margin-bottom: 25px; border-left-color: #ffb703;">
-                    <h4 style="margin-top:0; color:var(--primario-oscuro); margin-bottom:15px;">3. Experiencia Laboral
-                        Consolidada</h4>
-                    <div class="grid-detalle" style="margin-bottom:0;">
-                        <div>
-                            <div class="grupo-dato"><span class="lbl-dato">Última Entidad</span>
-                                <p class="val-dato">Ministerio de las TIC (Pública)</p>
-                            </div>
-                            <div class="grupo-dato"><span class="lbl-dato">Cargo Desempeñado</span>
-                                <p class="val-dato">Desarrollador Senior</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="grupo-dato"><span class="lbl-dato">Periodo</span>
-                                <p class="val-dato">Enero 2018 - Diciembre 2024</p>
-                            </div>
-                            <div class="grupo-dato"><span class="lbl-dato">Tiempo Total Calculado</span>
-                                <p class="val-dato">6 Años y 11 Meses Totales en el Sistema</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Acciones Permanentes -->
-                <div
-                    style="background:#f1f3f5; padding: 20px; border-radius: 6px; display:flex; justify-content:space-between; align-items:center;">
-                    <div>
-                        <strong style="color:var(--texto);">Acciones de Auditoría</strong>
-                        <p style="margin:5px 0 0; font-size:0.85rem; color:var(--texto-claro);">Marque la hoja de vida
-                            como aprobada o rechazada.</p>
-                    </div>
-                    <div style="display:flex; gap: 15px;">
-                        <a href="admin.html" class="btn btn-primario"
-                            style="background:#dc3545; color: white; text-decoration:none; padding: 10px 20px;">✕
-                            Rechazar</a>
-                        <a href="admin.html" class="btn btn-primario"
-                            style="background:#28a745; color: white; text-decoration:none; padding: 10px 20px;">✓
-                            Aprobar HV</a>
-                    </div>
-                </div>
             </div>
         </section>
+        </div>
+
+        <div id="vista-historial" style="display: none;">
+            <section>
+                <h2><span class="numero-seccion">📋</span> Historial de Estados</h2>
+                <div style="background:#fff; padding: 10px; border-radius: 6px; border: 1px solid #ddd; max-height: 450px; overflow-y: auto; margin-top:15px;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Candidato</th>
+                                <th>Estado Final</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaHistorialBody">
+                            <!-- JS inyectará el historial resumido aquí -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <p>Panel de Administración &copy; 2026 - Modo Estático sin JS</p>
+        <p>Panel de Administración &copy; 2026 - Con JavaScript (Seguridad Mock)</p>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>

@@ -252,3 +252,41 @@ footer {
     .botones-formulario { flex-direction: column-reverse; }
     .btn { width: 100%; text-align: center; }
 }
+/* -- Tablas Admin ---------------------------------------------- */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--texto);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.admin-table th, .admin-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid var(--borde);
+    text-align: left;
+}
+.admin-table th {
+    background-color: var(--fondo);
+    font-weight: 700;
+    color: var(--primario-oscuro);
+    border-bottom: 2px solid var(--primario);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+.admin-table tbody tr:nth-child(even) {
+    background-color: #f9fbfe;
+}
+.admin-table tbody tr:hover {
+    background-color: #eff3f8;
+}
+.admin-table .btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+}

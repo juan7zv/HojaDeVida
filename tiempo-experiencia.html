@@ -44,7 +44,7 @@
                         <div class="fila-campos">
                             <div class="campo">
                                 <label class="requerido">Tipo de Ocupación</label>
-                                <select id="tipoOcup_1" required>
+                                <select id="tipoOcup_1" data-required="true">
                                     <option value="" disabled selected> Seleccionar </option>
                                     <option value="servidorPublico">Servidor Público</option>
                                     <option value="empleadoPrivado">Empleado Sector Privado</option>
@@ -63,6 +63,8 @@
                     </div>
                 </div>
 
+                <button type="button" onclick="agregarOcupacion()" class="btn btn-secundario" id="btnAgregaOcup" style="margin-top:15px; width:100%; border:1px dashed var(--primario); background:var(--fondo);">+ Agregar Otra Ocupación</button>
+
                 <!-- BLOQUE DE SUMATORIA TOTAL: Manejado dinámicamente por JS en main.js -->
                 <div
                     style="margin-top:20px;padding:16px;background:#f4f6f9;border-radius:8px;border: 1px solid var(--borde);">
@@ -73,12 +75,12 @@
                         <div class="campo">
                             <label class="requerido">Total Años</label>
                             <!-- totalAnios es de solo lectura y se actualiza por JS -->
-                            <input type="number" name="totalAnios" min="0" required readonly style="background-color: #e9ecef;">
+                            <input type="number" name="totalAnios" min="0" data-required="true" readonly style="background-color: #e9ecef;">
                         </div>
                         <div class="campo">
                             <label class="requerido">Total Meses</label>
                             <!-- totalMeses es de solo lectura y se actualiza por JS -->
-                            <input type="number" name="totalMeses" min="0" required readonly style="background-color: #e9ecef;">
+                            <input type="number" name="totalMeses" min="0" data-required="true" readonly style="background-color: #e9ecef;">
                         </div>
                     </div>
                     <p style="text-align:center; font-size:0.75rem; color:#6c757d; margin-top:8px;">
@@ -93,6 +95,7 @@
                     <a href="experiencia-laboral.html" class="btn btn-secundario"
                         style="text-decoration:none; display:inline-block; text-align:center;">← Sección Anterior</a>
                     <div>
+                        <button type="button" onclick="abrirVistaPreviaLocal()" class="btn btn-secundario" style="margin-right:10px;">👁 Vista Previa</button>
                         <button type="submit" class="btn btn-primario">Siguiente Sección ➜</button>
                     </div>
                 </div>

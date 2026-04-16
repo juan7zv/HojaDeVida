@@ -41,7 +41,7 @@
                 <div class="fila-campos">
                     <div class="campo">
                         <label for="primerApellido" class="requerido">Primer Apellido</label>
-                        <input type="text" id="primerApellido" placeholder="Ej: García" required>
+                        <input type="text" id="primerApellido" placeholder="Ej: García" data-required="true">
                     </div>
                     <div class="campo">
                         <label for="segundoApellido">Segundo Apellido (o de casada)</label>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="campo">
                         <label for="nombres" class="requerido">Nombres</label>
-                        <input type="text" id="nombres" placeholder="Ej: Carlos Andrés" required>
+                        <input type="text" id="nombres" placeholder="Ej: Carlos Andrés" data-required="true">
                     </div>
                 </div>
 
@@ -59,14 +59,14 @@
                     <div class="campo" id="contenedorTipoDoc">
                         <label class="requerido">Tipo de Documento</label>
                         <div class="grupo-radio">
-                            <label><input type="radio" name="tipoDocumento" value="CC" required> C.C</label>
+                            <label><input type="radio" name="tipoDocumento" value="CC" data-required="true"> C.C</label>
                             <label><input type="radio" name="tipoDocumento" value="CE"> C.E</label>
                             <label><input type="radio" name="tipoDocumento" value="PAS"> PAS</label>
                         </div>
                     </div>
                     <div class="campo">
                         <label for="numeroDocumento" class="requerido">Número</label>
-                        <input type="number" id="numeroDocumento" placeholder="Ej: 1030456789" required>
+                        <input type="number" id="numeroDocumento" placeholder="Ej: 1030456789" data-required="true">
                     </div>
                 </div>
 
@@ -75,14 +75,14 @@
                     <div class="campo" id="contenedorSexo">
                         <label class="requerido">Sexo</label>
                         <div class="grupo-radio">
-                            <label><input type="radio" name="sexo" value="F" required> Femenino</label>
+                            <label><input type="radio" name="sexo" value="F" data-required="true"> Femenino</label>
                             <label><input type="radio" name="sexo" value="M"> Masculino</label>
                         </div>
                     </div>
                     <div class="campo" id="contenedorNacionalidad">
                         <label class="requerido">Nacionalidad</label>
                         <div class="grupo-radio">
-                            <label><input type="radio" name="nacionalidad" value="COL" required> Colombiano</label>
+                            <label><input type="radio" name="nacionalidad" value="COL" data-required="true"> Colombiano</label>
                             <label><input type="radio" name="nacionalidad" value="EXT"> Extranjero</label>
                         </div>
                     </div>
@@ -132,9 +132,7 @@
                         <label for="distritoMilitar">Distrito Militar (D.M)</label>
                         <select id="distritoMilitar">
                             <option value="" disabled selected>Seleccionar DM</option>
-                            <option value="1">Distrito Militar 1</option>
-                            <option value="2">Distrito Militar 2</option>
-                            <option value="3">Distrito Militar 3</option>
+                            <!-- Llenado dinámicamente por JS según la rúbrica -->
                         </select>
                     </div>
                 </div>
@@ -144,14 +142,14 @@
                 <div class="fila-campos">
                     <div class="campo">
                         <label for="nacDia" class="requerido">Día</label>
-                        <select id="nacDia" required>
+                        <select id="nacDia" data-required="true">
                             <option value=""> Día </option>
                             <!-- Los días se cargan dinámicamente via JS -->
                         </select>
                     </div>
                     <div class="campo">
                         <label for="nacMes" class="requerido">Mes</label>
-                        <select id="nacMes" required>
+                        <select id="nacMes" data-required="true">
                             <option value="" disabled selected> Mes </option>
                             <option value="01">Enero</option>
                             <option value="02">Febrero</option>
@@ -169,7 +167,7 @@
                     </div>
                     <div class="campo">
                         <label for="nacAnio" class="requerido">Año</label>
-                        <input type="number" id="nacAnio" min="1941" max="2008" placeholder="Ej: 1990" required>
+                        <input type="number" id="nacAnio" min="1941" max="2008" placeholder="Ej: 1990" data-required="true">
                     </div>
                 </div>
 
@@ -177,20 +175,20 @@
                 <div class="fila-campos">
                     <div class="campo">
                         <label for="paisNac" class="requerido">País de Nacimiento</label>
-                        <select id="paisNac" required>
+                        <select id="paisNac" data-required="true">
                             <option value="colombia">Colombia</option>
                             <option value="extranjero">Extranjero</option>
                         </select>
                     </div>
                     <div class="campo">
                         <label for="deptoNac" class="requerido" id="labelDeptoNac">Departamento</label>
-                        <select id="deptoNac" required>
+                        <select id="deptoNac" data-required="true">
                             <!-- Cargado dinámicamente -->
                         </select>
                     </div>
                     <div class="campo">
                         <label for="municipioNac" class="requerido" id="labelMunNac">Municipio</label>
-                        <select id="municipioNac" required>
+                        <select id="municipioNac" data-required="true">
                             <!-- Cargado dinámicamente -->
                         </select>
                     </div>
@@ -201,26 +199,26 @@
                 <div class="fila-campos">
                     <div class="campo" style="flex:2">
                         <label for="direccionCorr" class="requerido">Dirección Completa</label>
-                        <input type="text" id="direccionCorr" placeholder="Ej: Calle 45 #12-34" required>
+                        <input type="text" id="direccionCorr" placeholder="Ej: Calle 45 #12-34" data-required="true">
                     </div>
                 </div>
                 <div class="fila-campos">
                     <div class="campo">
                         <label for="paisCorr" class="requerido">País</label>
-                        <select id="paisCorr" required>
+                        <select id="paisCorr" data-required="true">
                             <option value="colombia">Colombia</option>
                             <option value="extranjero">Extranjero</option>
                         </select>
                     </div>
                     <div class="campo">
                         <label for="deptoCorr" class="requerido" id="labelDeptoCorr">Departamento</label>
-                        <select id="deptoCorr" required>
+                        <select id="deptoCorr" data-required="true">
                             <!-- Cargado dinámicamente -->
                         </select>
                     </div>
                     <div class="campo">
                         <label for="municipioCorr" class="requerido" id="labelMunCorr">Municipio</label>
-                        <select id="municipioCorr" required>
+                        <select id="municipioCorr" data-required="true">
                             <!-- Cargado dinámicamente -->
                         </select>
                     </div>
@@ -230,19 +228,20 @@
                 <div class="fila-campos">
                     <div class="campo">
                         <label for="telefono" class="requerido">Teléfono / Celular</label>
-                        <input type="tel" id="telefono" placeholder="Ej: 3101234567" required>
+                        <input type="tel" id="telefono" placeholder="Ej: 3101234567" data-required="true">
                     </div>
                     <div class="campo">
                         <label for="email" class="requerido">Correo Electrónico</label>
-                        <input type="email" id="email" placeholder="Ej: correo@email.com" required>
+                        <input type="email" id="email" placeholder="Ej: correo@email.com" data-required="true">
                     </div>
                 </div>
 
                 <!-- Botones de acción del formulario -->
                 <div class="botones-formulario">
                     <a href="index.html" class="btn btn-secundario"
-                        style="text-decoration:none; display:inline-block; text-align:center;">← Volver al Inicio</a>
+                        style="text-decoration:none; display:inline-block; text-align:center;">← Cancelar</a>
                     <div>
+                        <button type="button" onclick="abrirVistaPreviaLocal()" class="btn btn-secundario" style="margin-right:10px;">👁 Vista Previa</button>
                         <button type="submit" class="btn btn-primario">Siguiente Sección ➜</button>
                     </div>
                 </div>

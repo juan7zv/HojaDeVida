@@ -38,14 +38,8 @@
 
             <div style="margin-top:20px;">
                 <h3>Resumen de la Hoja de Vida Enviada</h3>
-                <div id="resumenHV" style="margin-top:12px; background:#fff; padding:15px; border:1px solid #ddd; border-top:3px solid var(--primario); border-radius:5px;">
-                    <p style="color:var(--texto-claro);font-size:0.85rem;margin-bottom:10px;">La información se registró en el sistema y está pendiente de revisión.</p>
-                    <strong style="color:var(--texto);">Nombre:</strong> Usuario Estático<br><br>
-                    <strong style="color:var(--texto);">Documento:</strong> C.C 123456789<br><br>
-                    <strong style="color:var(--texto);">Email:</strong> estatico@email.com<br><br>
-                    <strong style="color:var(--texto);">Teléfono:</strong> 3101234567<br><br>
-                    <strong style="color:var(--texto);">Estado:</strong> Diligenciada<br><br>
-                    <strong style="color:var(--texto);">Fecha de Envío:</strong> 2026-04-08<br>
+                <div id="resumenHV" style="margin-top:12px; background:#fff; padding:20px; border:1px solid #ddd; border-top:3px solid var(--primario); border-radius:5px; font-size:0.95rem;">
+                    <!-- Se carga dinámicamente con JS -->
                 </div>
             </div>
         </section>
@@ -59,7 +53,29 @@
     </main>
 
     <footer>
-        <p>Formato Único Hoja de Vida &copy; 2026 - Modo Estático</p>
+        <p>Formato Único Hoja de Vida &copy; 2026 - Datos Dinámicos</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const list = JSON.parse(localStorage.getItem('hvList') || '[]');
+            const resumenDiv = document.getElementById('resumenHV');
+            if(list.length > 0) {
+                const hv = list[list.length - 1];
+                resumenDiv.innerHTML = `
+                    <p style="color:var(--texto-claro);font-size:0.85rem;margin-bottom:15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">La información se registró en el sistema y está pendiente de revisión.</p>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 12px; color: var(--texto);">
+                        <div><strong style="color:var(--primario-oscuro);">Nombre Completo:</strong> ${hv.nombreCompleto}</div>
+                        <div><strong style="color:var(--primario-oscuro);">Documento:</strong> ${hv.documento}</div>
+                        <div><strong style="color:var(--primario-oscuro);">Fecha de Envío:</strong> ${hv.fecha}</div>
+                        <div><strong style="color:var(--primario-oscuro);">Estado Actual:</strong> <span style="background-color: var(--fondo); padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc; font-weight: bold; text-transform: capitalize;">${hv.estado}</span></div>
+                    </div>
+                `;
+            } else {
+                resumenDiv.innerHTML = '<p style="color:var(--error);">No se encontró información registrada.</p>';
+            }
+        });
+    </script>
 </body>
 </html>
+

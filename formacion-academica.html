@@ -41,7 +41,7 @@
                 <div class="campo" id="contenedorGrados">
                     <label class="requerido">Último Grado Aprobado</label>
                     <div class="grupo-grados">
-                        <label><input type="radio" name="gradoAprobado" value="1" required><span>1</span></label>
+                        <label><input type="radio" name="gradoAprobado" value="1" data-required="true"><span>1</span></label>
                         <label><input type="radio" name="gradoAprobado" value="2"><span>2</span></label>
                         <label><input type="radio" name="gradoAprobado" value="3"><span>3</span></label>
                         <label><input type="radio" name="gradoAprobado" value="4"><span>4</span></label>
@@ -59,11 +59,11 @@
                 <div class="fila-campos" style="margin-top:14px;">
                     <div class="campo">
                         <label for="tituloBasica" class="requerido">Título Obtenido</label>
-                        <input type="text" id="tituloBasica" placeholder="Ej: Bachiller Académico" required>
+                        <input type="text" id="tituloBasica" placeholder="Ej: Bachiller Académico" data-required="true">
                     </div>
                     <div class="campo">
                         <label for="fechaGradoMes" class="requerido">Mes de Grado</label>
-                        <select id="fechaGradoMes" required>
+                        <select id="fechaGradoMes" data-required="true">
                             <option value="" disabled selected> Seleccionar </option>
                             <option value="01">Enero</option>
                             <option value="02">Febrero</option>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="campo">
                         <label for="fechaGradoAnio" class="requerido">Año de Grado</label>
-                        <input type="number" id="fechaGradoAnio" min="1941" max="2026" placeholder="Ej: 2010" required>
+                        <input type="number" id="fechaGradoAnio" min="1941" max="2026" placeholder="Ej: 2010" data-required="true">
                     </div>
                 </div>
             </section>
@@ -102,7 +102,7 @@
                         <div class="fila-campos">
                             <div class="campo">
                                 <label class="requerido">Modalidad Académica</label>
-                                <select id="modalidad_1" required>
+                                <select id="modalidad_1" data-required="true">
                                     <option value="" disabled selected>-- Seleccionar --</option>
                                     <option value="TC">Técnica</option>
                                     <option value="TL">Tecnológica</option>
@@ -128,7 +128,7 @@
                             </div>
                             <div class="campo">
                                 <label class="requerido">Nombre del Título Obtenido</label>
-                                <input type="text" id="nombreEstudio_1" placeholder="Ej: Ingeniero de Sistemas" required>
+                                <input type="text" id="nombreEstudio_1" placeholder="Ej: Ingeniero de Sistemas" data-required="true">
                             </div>
                         </div>
                         <div class="fila-campos">
@@ -161,6 +161,7 @@
                         </div>
                     </div>
                 </div>
+                <button type="button" onclick="agregarEstudio()" class="btn btn-secundario" id="btnAgregaEstudio" style="margin-top:15px; width:100%; border:1px dashed var(--primario); background:var(--fondo);">+ Agregar Otro Estudio Superior</button>
             </section>
 
             <!-- SECCIÓN 2.3: CONOCIMIENTO DE IDIOMAS -->
@@ -209,6 +210,7 @@
                         </div>
                     </div>
                 </div>
+                <button type="button" onclick="agregarIdioma()" class="btn btn-secundario" id="btnAgregaIdioma" style="margin-top:15px; width:100%; border:1px dashed var(--primario); background:var(--fondo);">+ Agregar Otro Idioma</button>
             </section>
 
             <!-- Botones de navegación e interacción -->
@@ -217,6 +219,7 @@
                     <a href="datos-personales.html" class="btn btn-secundario"
                         style="text-decoration:none; display:inline-block; text-align:center;">← Sección Anterior</a>
                     <div>
+                        <button type="button" onclick="abrirVistaPreviaLocal()" class="btn btn-secundario" style="margin-right:10px;">👁 Vista Previa</button>
                         <button type="submit" class="btn btn-primario">Siguiente Sección ➜</button>
                     </div>
                 </div>
